@@ -62,24 +62,24 @@ if(isset($_GET['error'])){
     <main class="w-full py-6 px-12">
 
         <div class="flex flex-col w-[100%]">
-            <div class="flex flex-row w-[70%]">
+            <div class="flex flex-col md:flex-row w-[70%]">
                 <img src="../../media/img/<?= $item[0]["foto"] ?>" alt="">
-                <div class="flex flex-col pl-6 h-auto">
-                    <span class="text-4xl font-normal h-[40%]"><?= $item[0]["nama"] ?></span>
-                    <span class="text-2xl font-normal">Ukuran: </span>
-                    <span class="text-2xl font-normal"><?= $item[0]["ukuran"] ?></span>
-                    <span class="text-2xl font-normal">Stok:<?= $item[0]["stok"] ?></span>
+                <div class="flex flex-col md:pl-6 h-auto">
+                    <span class="text-lg md:text-4xl font-normal h-[40%]"><?= $item[0]["nama"] ?></span>
+                    <span class="text-lg md:text-2xl font-normal">Ukuran: </span>
+                    <span class="text-lg md:text-2xl font-normal"><?= $item[0]["ukuran"] ?></span>
+                    <span class="text-lg md:text-2xl font-normal">Stok:<?= $item[0]["stok"] ?></span>
                 </div>
             </div>
             <br>
             <br>
-            <div class="w-[47%] flex flex-col gap-y-2">
-                <span class="font-base text-xl pl-1">Harga: Rp.<?= $item[0]["harga"] ?>/ pcs</span>
-                <span class="font-base text-xl pl-1">berat:<?= $item[0]["berat"] ?></span>
-                <span class="font-base text-xl pl-1">kondisi:<?= $item[0]["kondisi"] ?></span>
-                <span class="font-base text-xl pl-1">Kategori:<?= $item[0]["kategori"] ?></span>
+            <div class="w-full md:w-[47%] flex flex-col gap-y-2">
+                <span class="font-base text-lg md:text-xl pl-1">Harga: Rp.<?= $item[0]["harga"] ?>/ pcs</span>
+                <span class="font-base text-lg md:text-xl pl-1">berat:<?= $item[0]["berat"] ?></span>
+                <span class="font-base text-lg md:text-xl pl-1">kondisi:<?= $item[0]["kondisi"] ?></span>
+                <span class="font-base text-lg md:text-xl pl-1">Kategori:<?= $item[0]["kategori"] ?></span>
                 <br>
-                <span class="font-base text-xl">Deskripsi:<?= $item[0]["deskripsi"] ?></span>
+                <span class="font-base text-lg md:text-xl">Deskripsi:<?= $item[0]["deskripsi"] ?></span>
             </div>
         </div>
     
@@ -93,7 +93,7 @@ if(isset($_GET['error'])){
         <input type="hidden" name="nama" id="" value="<?= $item[0]['nama'] ?>">
         <input type="hidden" name="id" id="idbaju" value="<?= $item[0]['id_baju'] ?>">
         <input type="hidden" name="iduser" id="iduser" value="<?= $_SESSION['userID'] ?>">
-        <button class="fixed right-24 bottom-24 py-2 px-10 rounded-full bg-[#d7a86e]" type="submit" name="submit" id="">Pesan</button>
+        <button class="fixed right-2 md:right-24 bottom-2 md:bottom-24 py-2 px-10 rounded-full bg-[#d7a86e]" type="submit" name="submit" id="">Pesan</button>
     </form>
 
     <button id="fav">FAV</button>

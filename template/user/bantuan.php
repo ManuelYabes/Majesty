@@ -29,8 +29,8 @@ $profil = query("SELECT * FROM pengguna WHERE id = $idUser");
 <body>
     <?php include('nav.php') ?>
 
-    <main class="flex flex-row w-full h-screen border-4">
-        <div class="w-[20%] h-full p-4 flex justify-center">
+    <main class="flex flex-col md:flex-row w-full h-screen border-4">
+        <div class="hidden md:flex justify-center w-[20%] h-full p-4 ">
             <div class="w-[80%] h-[80%] border-2 flex flex-col justify-around items-center text-2xl rounded-xl">
                 <span class="h-[5%]"><?= $profil[0]['nama'] ?></span>
                 <div class="max-h-[60%] flex flex-col justify-around gap-4">
@@ -42,10 +42,19 @@ $profil = query("SELECT * FROM pengguna WHERE id = $idUser");
                 <a class="h-[20%]" href="func/logout.php">LogOut</a>
             </div>
         </div>
+        <div class="md:hidden w-full h-[5%] flex justify-around items-center">
+            <div class="underline">
+                <a href="profil.php">Profile</a>
+                <a href="favorit.php">Favorit</a>
+                <a href="riwayat.php">Riwayat</a>
+                <a href="bantuan.php">Bantuan</a>
+                <a class="h-[20%]" href="func/logout.php">LogOut</a>
+            </div>
+        </div>
 
 
 
-        <div class="w-[80%] h-full p-4 flex justify-center">
+        <div class="w-full md:w-[80%] h-full p-4 flex justify-center">
             <div class="w-[100%] h-[80%] border-2 flex flex-col items-center rounded-xl">
                 <span class="w-[90%] mt-6 mx-auto flex justify-center text-xl font-bold">Apakah ada kesulitan?</span>
                     <div class="w-[90%] mt-6 mx-auto flex justify-between text-xl font-medium">Hubungi Kami Melalui: </div>
@@ -61,7 +70,6 @@ $profil = query("SELECT * FROM pengguna WHERE id = $idUser");
     </main>
 
 
-    <a href="list.php">kembali ke daftar baju</a>
     <script src="../../node_modules/flowbite/dist/flowbite.js"></script>
 
 </body>

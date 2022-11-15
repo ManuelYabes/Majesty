@@ -79,16 +79,16 @@ if(isset($_POST['submit-checkout'])){
     <div class="w-auto h-auto mt-12 flex flex-col sm:flex-row gap-5">
         <div class="w-fit h-auto"><img class="h-full" src="../../media/img/<?= $info[0]['foto'] ?>"></div>
         <div class="w-full h-auto flex flex-col gap-y-2">
-            <span class="font-base text-3xl pl-1"><?= $info[0]["nama"] ?></span>
-            <span class="font-base text-xl pl-1">Harga: Rp.<?= $info[0]["harga"] ?>/ pcs</span>
-            <span class="font-base text-xl pl-1">berat:<?= $info[0]["berat"] ?></span>
-            <span class="font-base text-xl pl-1">kondisi:<?= $info[0]["kondisi"] ?></span>
-            <span class="font-base text-xl pl-1">Kategori:<?= $info[0]["kategori"] ?></span>
+            <span class="font-base text-2xl md:text-3xl pl-1"><?= $info[0]["nama"] ?></span>
+            <span class="font-base text-lg md:text-xl pl-1">Harga: Rp.<?= $info[0]["harga"] ?>/ pcs</span>
+            <span class="font-base text-lg md:text-xl pl-1">berat:<?= $info[0]["berat"] ?></span>
+            <span class="font-base text-lg md:text-xl pl-1">kondisi:<?= $info[0]["kondisi"] ?></span>
+            <span class="font-base text-lg md:text-xl pl-1">Kategori:<?= $info[0]["kategori"] ?></span>
         </div>
     </div>
 
 
-    <form action="" method="POST" class="mt-10 flex flex-col w-5/12 gap-y-10">
+    <form action="" method="POST" class="mt-10 flex flex-col w-full md:w-5/12 gap-y-10">
         <div class="flex flex-col">
             <span>Pilih Ukuran</span>
             <select class="rounded-full" name="ukuran" id="" required>
@@ -115,7 +115,7 @@ if(isset($_POST['submit-checkout'])){
             <input type="hidden" name="nama" value="<?= $nama ?>">
             <input type="hidden" name="id" value="<?= $id ?>">
             <input type="hidden" name="iduser" value="<?= $idUser ?>">
-            <button class="fixed right-24 bottom-24 py-2 px-10 rounded-full bg-[#d7a86e]" type="submit" name="submit-checkout" id="submit">Checkout</button>
+            <button class="fixed right-2 md:right-24 bottom-2 md:bottom-24 py-2 px-10 rounded-full bg-[#d7a86e]" type="submit" name="submit-checkout" id="submit">Checkout</button>
         </div>
     </form>
 
