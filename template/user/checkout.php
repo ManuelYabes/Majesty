@@ -33,21 +33,18 @@ $id = $_POST['id'];
 $idUser = $_POST["iduser"];
 $tanggal = date('Y-m-d');
 
-$info = query("SELECT * FROM daftar_baju WHERE id=$id");
+$info = query("SELECT * FROM daftar_baju WHERE id_baju=$id");
 
 if(isset($_POST['submit-checkout'])){
-    global $conn;
-    $ukuran = $_POST["ukuran"];
-    $pembayaran = $_POST["pembayaran"];
-    $tanggal = $_POST["tanggal"];
-    $nama = $_POST["nama"];
-    $id = intval($_POST["id"]);
-    $idUser = intval($_POST['iduser']);
-
-    mysqli_query($conn,"INSERT INTO peminjam VALUES('',$id,$idUser,'$nama','$ukuran','$pembayaran','$tanggal')");
-    $test = mysqli_affected_rows($conn);
-    if ($test>0){
-        header("Location: thankyou.php");
+    $idnext = pinjam($_POST);
+    if($idnext !== false){
+    echo "<script>   
+        document.location.href = 'thankyou.php?idnext=$idnext';
+    </script>";
+    } else {
+    echo "<script>   
+        document.location.href = 'detail.php?id=$id&error=tru';
+    </script>";
     }
 }
 
@@ -63,11 +60,11 @@ if(isset($_POST['submit-checkout'])){
     <link rel="stylesheet" href="../../tailwind/output.css">
     <style>
         @font-face {
-            font-family: 'Playfair Display', serif;
-            src: url(../../static/Assets/PlayfairDisplay-VariableFont_wght.ttf);
+            font-family: 'Poppins', sans-serif;
+            src: url(../../staic/Assets/Poppins-ExtraLight.ttf);
         }
         *{
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
         }
     </style>
 </head>
@@ -91,7 +88,7 @@ if(isset($_POST['submit-checkout'])){
     </div>
 
 
-    <form action="" method="POST" class="mt-10 flex flex-col w-2/12 gap-y-10">
+    <form action="" method="POST" class="mt-10 flex flex-col w-5/12 gap-y-10">
         <div class="flex flex-col">
             <span>Pilih Ukuran</span>
             <select class="rounded-full" name="ukuran" id="" required>
@@ -109,8 +106,12 @@ if(isset($_POST['submit-checkout'])){
             </select>
         </div>
         <div class="flex flex-col">
-            <span>Tentukan Tanggal</span>
-            <input class="rounded-full" type="date" name="tanggal" min="<?= $tanggal ?>" required>
+            <span>Tentukan Tanggal Pengambilan Dan Pengembalian</span>
+            <div class="flex items-center mt-2"> 
+                <input class="rounded-full" type="date" name="tanggal" min="<?= $tanggal ?>" required>
+                <span class="mx-4"> - </span>
+                <input class="rounded-full" type="date" name="tanggal2" min="<?= $tanggal ?>" required>
+            </div>
             <input type="hidden" name="nama" value="<?= $nama ?>">
             <input type="hidden" name="id" value="<?= $id ?>">
             <input type="hidden" name="iduser" value="<?= $idUser ?>">

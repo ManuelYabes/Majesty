@@ -5,6 +5,9 @@ session_start();
 
 $idUser = $_SESSION['userID'];
 $profil = query("SELECT * FROM pengguna WHERE id = $idUser");
+// $history = query("SELECT * FROM peminjam INNER JOIN daftar_baju on peminjam.id_baju = daftar_baju.id WHERE id_pengguna = $idUser");
+$favorit = query("SELECT * FROM favorit INNER JOIN daftar_baju on favorit.id_baju = daftar_baju.id_baju WHERE id_pengguna = $idUser");
+// var_dump($favorit);
 
 ?>
 
@@ -32,7 +35,7 @@ $profil = query("SELECT * FROM pengguna WHERE id = $idUser");
     <main class="flex flex-row w-full h-screen border-4">
         <div class="w-[20%] h-full p-4 flex justify-center">
             <div class="w-[80%] h-[80%] border-2 flex flex-col justify-around items-center text-2xl rounded-xl">
-                <span class="h-[5%]"><?= $profil[0]['nama'] ?></span>
+            <span class="h-[5%]"><?= $profil[0]['nama'] ?></span>
                 <div class="max-h-[60%] flex flex-col justify-around gap-4">
                     <a href="profil.php">Profile</a>
                     <a href="favorit.php">Favorit</a>
@@ -43,22 +46,17 @@ $profil = query("SELECT * FROM pengguna WHERE id = $idUser");
             </div>
         </div>
 
-
-
         <div class="w-[80%] h-full p-4 flex justify-center">
-            <div class="w-[100%] h-[80%] border-2 flex flex-row items-center rounded-xl">
-                <div class="w-[20%] h-[100%] border-2 flex flex-col justify-around items-center">
-                    <img src="max-w-[100%] max-h-[50%]" alt="Profil">
-                </div>
-                <div class="w-[80%] h-[100%] border-2 border-2 flex flex-col items-start rounded-xl gap-8">
-                    <span class="w-[90%] mt-6 mx-auto flex justify-between text-xl font-bold">Ubah BioData<span class="font-medium underline"><a href="">Tambah / Ubah Profil</a></span></span>
-                    <div class="w-[90%] mx-auto flex justify-between"><span>Nama </span><span><?=  $profil[0]['nama'] ?></span></div>
-                    <div class="w-[90%] mx-auto flex justify-between"><span>Tanggal Lahir </span><span><?=  $profil[0]['tanggal_lahir'] ?></span></div>
-                    <div class="w-[90%] mx-auto flex justify-between"><span>Jenis Kelamin </span><span><?=  $profil[0]['jenis_kelamin'] ?></span></div>
-                    <span class="w-[90%] mt-6 mx-auto flex justify-between text-xl font-bold">Ubah Kontak</span>
-                    <div class="w-[90%] mx-auto flex justify-between"><span>Email </span><span> <?=  $profil[0]['email'] ?></span></div>
-                    <div class="w-[90%] mx-auto flex justify-between"><span>No telepon </span> <?=  $profil[0]['no_telepon'] ?></span></div>
-                </div>
+            <div class="w-full h-full flex flex-row flex-wrap justify-center overflow-auto rounded-xl border-2 z-10"> 
+                <?php foreach( $favorit as $row): ?>
+                    <a href="historydetail.php?id=<?= $row['id'] ?>" class="w-[95%] h-fit rounded-xl aspect-[20/4] gap-10 flex flex-row justify-star flex-wrap drop-shadow-xl bg-white mt-4">
+                        <img class="h-fit w-[20%]" src="../../media/img/<?= $row['foto'] ?>" alt="">
+                        <div class="flex flex-col gap-2 w-[60%]">
+                        <span class="text-xl font-bold"><?= $row['nama'] ?></span>
+                        <span class="text-xl"><?= $row['deskripsi'] ?></span>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
             </div>
         </div>
     </main>

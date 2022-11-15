@@ -26,7 +26,10 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['userID'])) {
 }
 
 $id = $_GET['id'];
-$item = query("SELECT * FROM daftar_baju WHERE id = $id");
+$item = query("SELECT * FROM daftar_baju WHERE id_baju = $id");
+if(isset($_GET['error'])){
+    $error = $_GET['error'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -39,19 +42,24 @@ $item = query("SELECT * FROM daftar_baju WHERE id = $id");
     <link rel="stylesheet" href="../../tailwind/output.css">
     <style>
         @font-face {
-            font-family: 'Playfair Display', serif;
-            src: url(../../static/Assets/PlayfairDisplay-VariableFont_wght.ttf);
+            font-family: 'Poppins', sans-serif;
+            src: url(../../staic/Assets/Poppins-ExtraLight.ttf);
         }
         *{
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
         }
     </style></head>
 <body>
 
 <?php include('nav.php'); ?>
 
+    <?php if(isset($error)): ?>
+        <?php if( $error === 'tru' ): ?>
+            <span class="text-2xl text-red-400 underline">Peminjaman Gagal: </span>
+            <span class="text-2xl text-red-400">PASTIKAN TANGGAL PENGEMBALIAN SETELAH TANGGAL PENGAMBILAN</span>
+        <?php endif ?>
+    <?php endif ?>
     <main class="w-full py-6 px-12">
-    <span class="text-3xl font-thin text-[#8E3200] underline"><a href="list.php">Kembali</a></span>
 
         <div class="flex flex-col w-[100%]">
             <div class="flex flex-row w-[70%]">
@@ -83,7 +91,7 @@ $item = query("SELECT * FROM daftar_baju WHERE id = $id");
         <input type="hidden" name="listUkuran" id="" value="<?= $item[0]['ukuran'] ?>">
         <input type="hidden" name="listBayar" id="" value="<?= $item[0]['pembayaran'] ?>">
         <input type="hidden" name="nama" id="" value="<?= $item[0]['nama'] ?>">
-        <input type="hidden" name="id" id="idbaju" value="<?= $item[0]['id'] ?>">
+        <input type="hidden" name="id" id="idbaju" value="<?= $item[0]['id_baju'] ?>">
         <input type="hidden" name="iduser" id="iduser" value="<?= $_SESSION['userID'] ?>">
         <button class="fixed right-24 bottom-24 py-2 px-10 rounded-full bg-[#d7a86e]" type="submit" name="submit" id="">Pesan</button>
     </form>

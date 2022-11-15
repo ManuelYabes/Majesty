@@ -1,33 +1,7 @@
 <?php
 
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "majesty";
-
-// // Create connectio
-// $conn = mysqli_connect($servername, $username, $password);
-
-// // Check connection
-// if (!$conn) {
-//   die("Connection failed: " . mysqli_connect_error());
-// }
-// $sql = "INSERT INTO peminjam (id_baju,nama,ukuran,pembayaran,tanggal) VALUES (12,'a','b','c','d');";
-
-// $result = mysqli_query($conn,$sql);
-// // if (mysqli_query($conn, $sql)) {
-// //   echo "New record created successfully";
-// // } else {
-// //   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-// // }
-
-// mysqli_close($conn);
-
 require "func/functions.php";
 session_start();
-
-$pernikahaan = query("SELECT * FROM daftar_baju WHERE kategori = 'Pernikahan'");
-$formal = query("SELECT * FROM daftar_baju WHERE kategori = 'Formal'");
 
 if(isset($_COOKIE["key"]) && isset($_COOKIE["id"])){
     $id = $_COOKIE['id'];
@@ -47,6 +21,12 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['userID'])) {
 	exit();
 }
 
+
+$idUser = $_SESSION['userID'];
+$idnext = $_GET["idnext"];
+$history = query("SELECT peminjam.id,peminjam.nama,peminjam.id_pengguna,peminjam.pembayaran,peminjam.tanggal,peminjam.tanggal_,peminjam.nama,peminjam.ukuran,peminjam.code,daftar_baju.foto FROM peminjam LEFT JOIN daftar_baju ON peminjam.id_baju = daftar_baju.id_baju WHERE peminjam.id = '$idnext' AND peminjam.id_pengguna = $idUser");
+// var_dump($history);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,11 +34,43 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['userID'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../tailwind/output.css">
+    <style>
+        @font-face {
+            font-family: 'Poppins', sans-serif;
+            src: url(../../staic/Assets/Poppins-ExtraLight.ttf);
+        }
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <h1>thankyou</h1>
-    <a href="list.php">kembali ke daftar baju</a>
-    <a href="profil.php">ke profil</a>
+
+<?php include('nav.php'); ?>
+
+    <main>
+        <div class="flex flex-col items-center text-2xl mt-4">
+            <Span>Terimakasih telah meminjam pakaian di kami</Span>
+            <span>jangan lupa tunjukan pesan ini ke kasir</span>
+            <span>Untuk pengambilan</span>
+        </div>
+        <div>
+            <div class="flex flex-row justify-center w-full p-10">
+                <div class="flex flex-row justify-around w-[60%] border-2">
+                    <img class="" src="../../media/img/<?= $history[0]['foto'] ?>" alt="">
+                    <div class="flex flex-col justify-center">
+                        <span class="text-3xl font-[100]"><?= $history[0]['nama'] ?></span>
+                        <span class="text-xl">Ukuran <?= $history[0]['ukuran'] ?></span>
+                        <span class="text-xl">Pembayaran <?= $history[0]['pembayaran'] ?></span>
+                        <span class="text-xl">Tanggal <?= $history[0]['tanggal'] ?> Sampai <?= $history[0]['tanggal_'] ?> </span>
+                        <span class="text-xl">Code <?= $history[0]['code'] ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../../node_modules/flowbite/dist/flowbite.js"></script>
+
 </body>
 </html>

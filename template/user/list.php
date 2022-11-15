@@ -3,10 +3,10 @@
     require 'func/functions.php';
     session_start();
 
-    $pernikahaan = query("SELECT * FROM daftar_baju WHERE kategori = 'Pernikahan' ORDER BY id ASC LIMIT 0,6");
-    $adat = query("SELECT * FROM daftar_baju WHERE kategori = 'Adat' ORDER BY id DESC LIMIT 0,5");
-    $pesta = query("SELECT * FROM daftar_baju WHERE kategori = 'Pesta' ORDER BY id DESC LIMIT 0,5");
-    $formal = query("SELECT * FROM daftar_baju WHERE kategori = 'Formal' ORDER BY id DESC LIMIT 0,5");
+    $pernikahaan = query("SELECT * FROM daftar_baju WHERE kategori = 'Pernikahan' ORDER BY id_baju ASC LIMIT 0,6");
+    $adat = query("SELECT * FROM daftar_baju WHERE kategori = 'Adat' ORDER BY id_baju DESC LIMIT 0,5");
+    $pesta = query("SELECT * FROM daftar_baju WHERE kategori = 'Pesta' ORDER BY id_baju DESC LIMIT 0,5");
+    $formal = query("SELECT * FROM daftar_baju WHERE kategori = 'Formal' ORDER BY id_baju DESC LIMIT 0,5");
 
     if(isset($_COOKIE["key"]) && isset($_COOKIE["id"])){
         $id = $_COOKIE['id'];
@@ -38,11 +38,11 @@
         <link rel="stylesheet" href="../../tailwind/output.css">
         <style>
             @font-face {
-                font-family: 'Playfair Display', serif;
-                src: url(../../staic/Assets/PlayfairDisplay-VariableFont_wght.ttf);
+                font-family: 'Poppins', sans-serif;
+                src: url(../../staic/Assets/Poppins-ExtraLight.ttf);
             }
             *{
-                font-family: 'Playfair Display', serif;
+                font-family: 'Poppins', sans-serif;
             }
         </style>
     </head>
@@ -62,13 +62,13 @@
                 <?php if( count($pernikahaan) >= 2):?>
                     <div class="w-full mt-6 flex flex-row flex-wrap justify-center md:justify-start md:flex-nowrap gap-2.5 xl:gap-16">
                         <?php foreach( $pernikahaan as $row ): ?>
-                            <a class="w-[45%] sm:w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                            <a class="w-[45%] sm:w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
                         <?php endforeach;?>
                     </div>
                 <?php else: ?>
                     <div class="w-full mt-6 flex flex-row flex-wrap justify-center sm:justify-start md:flex-nowrap gap-2.5 xl:gap-16">
                         <?php foreach( $pernikahaan as $row ): ?>
-                            <a class="w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                            <a class="w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
                         <?php endforeach;?>
                     </div>
                 <?php endif;?>
@@ -84,13 +84,13 @@
                 <?php if( count($adat) >= 2):?>
                     <div class="w-full mt-6 flex flex-row flex-wrap justify-center md:justify-start md:flex-nowrap gap-2.5 xl:gap-16">
                         <?php foreach( $adat as $row ): ?>
-                            <a class="w-[45%] sm:w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                            <a class="w-[45%] sm:w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
                             <?php endforeach;?>
                     </div>
                 <?php else: ?>
                     <div class="w-full mt-6 flex flex-row flex-wrap justify-center sm:justify-start md:flex-nowrap gap-2.5 xl:gap-16">
                         <?php foreach( $adat as $row ): ?>
-                            <a class="w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                            <a class="w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
                         <?php endforeach;?>
                     </div>
                 <?php endif;?>
@@ -106,13 +106,13 @@
                 <?php if( count($pesta) >= 2):?>
                     <div class="w-full mt-6 flex flex-row flex-wrap justify-center md:justify-start md:flex-nowrap gap-2.5 xl:gap-16">
                         <?php foreach( $pesta as $row ): ?>
-                            <a class="w-[45%] sm:w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                            <a class="w-[45%] sm:w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
                         <?php endforeach;?>
                     </div>
                 <?php else: ?>
                     <div class="w-full mt-6 flex flex-row flex-wrap justify-center sm:justify-start md:flex-nowrap gap-2.5 xl:gap-16">
                         <?php foreach( $pesta as $row ): ?>
-                            <a class="w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                            <a class="w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
                         <?php endforeach;?>
                     </div>
                 <?php endif;?>
@@ -128,13 +128,13 @@
                 <?php if( count($adat) >= 2):?>
                     <div class="w-full mt-6 flex flex-row flex-wrap justify-center md:justify-start md:flex-nowrap gap-2.5 xl:gap-16">
                         <?php foreach( $formal as $row ): ?>
-                            <a class="w-[45%] sm:w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                            <a class="w-[45%] sm:w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
                             <?php endforeach;?>
                     </div>
                 <?php else: ?>
                     <div class="w-full mt-6 flex flex-row flex-wrap justify-center sm:justify-start md:flex-nowrap gap-2.5 xl:gap-16">
                         <?php foreach( $formal as $row ): ?>
-                            <a class="w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                            <a class="w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
                         <?php endforeach;?>
                     </div>
                 <?php endif;?>

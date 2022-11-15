@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../../static/css/style.css">
+    <style>
+        @font-face {
+            font-family: 'Poppins', sans-serif;
+            src: url(../../staic/Assets/Poppins-ExtraLight.ttf);
+        }
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
   </head>
   <body>
     <main>
@@ -60,5 +69,7 @@
             <div class="footer-item"><img class="icon-footer" src="../../static/Foto/icons8-youtube 1.png" alt=""><a href="youtube.com">Youtube</a></div>
         </div>
     </main>
+    <script src="../../node_modules/flowbite/dist/flowbite.js"></script>
+
   </body>
 </html>

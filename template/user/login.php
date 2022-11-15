@@ -64,11 +64,11 @@ if(isset($_POST["submit"])){
     <link rel="stylesheet" href="../../tailwind/output.css">
     <style>
         @font-face {
-            font-family: 'Poppins';
-            src: url(../../static/Assets/Poppins-ExtraLight.ttf);
+            font-family: 'Poppins', sans-serif;
+            src: url(../../staic/Assets/Poppins-ExtraLight.ttf);
         }
         *{
-            font-family: 'Poppins';
+            font-family: 'Poppins', sans-serif;
         }
     </style>
 </head>
