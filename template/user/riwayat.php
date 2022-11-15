@@ -48,7 +48,7 @@ $history = query("SELECT peminjam.id,peminjam.id_baju,peminjam.id_pengguna,pemin
         <div class="w-[80%] h-full p-4 flex justify-center">
             <div class="w-full h-full flex flex-row flex-wrap justify-center overflow-auto rounded-xl border-2 z-10"> 
                 <?php foreach( $history as $row): ?>
-                    <a href="historydetail.php?<?= $row['id'] ?>" class="w-[95%] h-fit aspect[20/4] rounded-xl gap-10 flex flex-row justify-star flex-wrap drop-shadow-xl bg-white mt-4">
+                    <a href="thankyou.php?idnext=<?= $row['id'] ?>" class="w-[95%] h-fit aspect[20/4] rounded-xl gap-10 flex flex-row justify-star flex-wrap drop-shadow-xl bg-white mt-4">
                         <img class="h-fit w-[20%]" src="../../media/img/<?= $row['foto'] ?>" alt="">
                         <div class="flex flex-col w-[60%]">
                             <span class="text-xl font-bold"><?= $row['nama'] ?></span>
