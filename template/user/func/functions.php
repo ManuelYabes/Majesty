@@ -37,4 +37,79 @@ function pinjam($data){
     return $idnext['id'];
 }
 
+function ubah($data){
+    global $conn;
+    $id = $data['id_pengguna'];
+    $nama = $data['nama'];
+    $lahir = $data['lahir'];
+    $gender = $data['gender'];
+    $email = $data['email'];
+    $phone = $data['phone'];
+    
+    $result = query("SELECT * FROM pengguna WHERE email = '$email' AND id != $id");
+    if(!empty($result)){
+        return false;
+    }
+    mysqli_query($conn,"UPDATE pengguna SET 
+                    nama = '$nama',
+                    email = '$email',
+                    tanggal_lahir = '$lahir',
+                    jenis_kelamin = '$gender',
+                    no_telepon = $phone
+                WHERE id = $id");
+    return mysqli_affected_rows($conn);
+}
+
+function uploadPP($data){
+    global $conn;
+    $foto = upload();
+    if(!$foto){
+        return false;
+    }
+    $id = $data['id_pengguna'];
+    mysqli_query($conn,"UPDATE pengguna SET foto = '$foto' WHERE id = $id");
+    return mysqli_affected_rows($conn);
+}
+
+function upload(){
+	$namaFile = $_FILES['pp']['name'];
+	$ukuranFile = $_FILES['pp']['size'];
+	$error = $_FILES['pp']['error'];
+	$tmpName = $_FILES['pp']['tmp_name'];
+
+	if ($error === 4){
+		echo "<script>
+        alert('pilih gambar dulu mbak / mas');
+        document.location.href = 'tambahbuku.php';
+        </script>";
+		return false;
+	}
+
+	$ekstensiGambarValid = ["jpg","png","jpeg"];
+	$ekstensiGambar = explode(".",$namaFile);
+	$ekstensiGambar = strtolower(end($ekstensiGambar));
+
+	if( !in_array($ekstensiGambar,$ekstensiGambarValid) ){
+		echo "<script>
+			alert('hayo upload apa???');
+		</script>";
+		return false;
+	}
+
+	if($ukuranFile > 10000000){
+		echo "<script>
+			alert('kegedean mas / mbak');
+		</script>";
+		return false;
+	}
+	
+	$namaFileBaru = uniqid();
+	$namaFileBaru .= '.';
+	$namaFileBaru .= $ekstensiGambar;
+
+	move_uploaded_file($tmpName,"../../media/img/" . $namaFileBaru);
+
+	return $namaFileBaru;
+
+}
 ?>

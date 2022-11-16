@@ -61,7 +61,7 @@ $history = query("SELECT peminjam.id,peminjam.id_baju,peminjam.id_pengguna,pemin
                         <img class="hidden md:flex h-fit w-[20%]" src="../../media/img/<?= $row['foto'] ?>" alt="">
                         <div class="flex flex-col w-[90%] md:w-[60%]">
                             <span class="text-xl font-bold"><?= $row['nama'] ?></span>
-                            <span class="text-lg">Peminjaman dilakukan pada tanggal: <?= $row['tanggal'] ?> sampai <?= $row['tanggal_'] ?></span>
+                            <span class="text-xl">Peminjaman dilakukan pada tanggal: <?= $row['tanggal'] ?> <br> Sampai <?= $row['tanggal_'] ?></span>
                             <span class="text-xl">Pembayaran <?= $row['pembayaran'] ?></span>
                             <span class="text-xl">Ukuran <?= $row['ukuran'] ?></span>
                             <span class="text-xl">code <?= $row['code'] ?></span>

@@ -51,16 +51,13 @@ $profil = query("SELECT * FROM pengguna WHERE id = $idUser");
                 <a class="h-[20%]" href="func/logout.php">LogOut</a>
             </div>
         </div>
-
-
-
-        <div class="w-full md:w-[80%] h-[80%] md:h-full p-4 flex justify-center">
-            <div class="w-[100%] h-full md:h-[80%] border-2 flex flex-row items-center rounded-xl">
-                <div class="w-[20%] h-[100%] border-2 hidden md:flex flex-col justify-around items-center">
-                    <img src="max-w-[100%] max-h-[50%]" alt="Profil">
+        <div class="w-full md:w-[80%] h-full md:h-[80%] p-4 flex justify-center">
+            <div class="w-[100%] h-full md:h-[100%] border-2 flex flex-col md:flex-row items-center rounded-xl">
+                <div class="w-[100%] md:w-[20%] h-[30%] md:h-full border-2 flex flex-col justify-start items-center pt-3 md:pt-5">
+                    <img class="w-[40%] md:w-[80%] aspect-square" src="../../media/img/<?= $profil[0]['foto'] ?>" alt="Profil">
                 </div>
-                <div class="w-full md:w-[80%] h-[100%] border-2 flex-wrap flex flex-col items-start rounded-xl gap-8">
-                    <span class="w-[90%] mt-6 mx-auto flex justify-between text-lg md:text-xl font-bold">Ubah BioData<span class="font-medium underline"><a href="">Tambah / Ubah Profil</a></span></span>
+                <div class="w-full md:w-[80%] h-[100%] flex-wrap flex flex-col items-start rounded-xl gap-8">
+                    <span class="w-[90%] mt-6 mx-auto flex justify-between text-lg md:text-xl font-bold">Ubah BioData<span class="font-medium underline"><a href="ubahprofile.php">Tambah / Ubah Profil</a></span></span>
                     <div class="w-[90%] mx-auto flex justify-between"><span>Nama </span><span><?=  $profil[0]['nama'] ?></span></div>
                     <div class="w-[90%] mx-auto flex justify-between"><span>Tanggal Lahir </span><span><?=  $profil[0]['tanggal_lahir'] ?></span></div>
                     <div class="w-[90%] mx-auto flex justify-between"><span>Jenis Kelamin </span><span><?=  $profil[0]['jenis_kelamin'] ?></span></div>

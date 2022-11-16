@@ -1,7 +1,6 @@
 <?php 
 
 require 'func/functions.php';
-
 session_start();
 
 $pernikahaan = query("SELECT * FROM daftar_baju WHERE kategori = 'Pernikahan'");
@@ -31,9 +30,13 @@ if(isset($_GET['error'])){
     $error = $_GET['error'];
 }
 
+$idUser = $_SESSION['userID'];
+$favorit = query("SELECT * FROM favorit WHERE id_pengguna = $idUser AND id_baju = $id");
+// var_dump($favorit);
+
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,7 +52,7 @@ if(isset($_GET['error'])){
             font-family: 'Poppins', sans-serif;
         }
     </style></head>
-<body>
+<body class="">
 
 <?php include('nav.php'); ?>
 
@@ -59,7 +62,7 @@ if(isset($_GET['error'])){
             <span class="text-2xl text-red-400">PASTIKAN TANGGAL PENGEMBALIAN SETELAH TANGGAL PENGAMBILAN</span>
         <?php endif ?>
     <?php endif ?>
-    <main class="w-full py-6 px-12">
+    <main class="w-full py-6 px-12 mb-10">
 
         <div class="flex flex-col w-[100%]">
             <div class="flex flex-col md:flex-row w-[70%]">
@@ -93,12 +96,29 @@ if(isset($_GET['error'])){
         <input type="hidden" name="nama" id="" value="<?= $item[0]['nama'] ?>">
         <input type="hidden" name="id" id="idbaju" value="<?= $item[0]['id_baju'] ?>">
         <input type="hidden" name="iduser" id="iduser" value="<?= $_SESSION['userID'] ?>">
-        <button class="fixed right-2 md:right-24 bottom-2 md:bottom-24 py-2 px-10 rounded-full bg-[#d7a86e]" type="submit" name="submit" id="">Pesan</button>
+        <button class="w-28 h-8 fixed right-2 md:right-24 bottom-2 md:bottom-20 rounded-full bg-[#d7a86e]" type="submit" name="submit" id="">Pesan</button>
     </form>
 
-    <button id="fav">FAV</button>
-    <div id="container"></div>
+<?php if(!empty($favorit)): ?>
+    <div class="fixed right-24  md:right-48 -bottom-3 md:bottom-[61px] py-2 px-10 rounded-full">
+        <button id="fav" class="text-[#d7a86e]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="0.5" stroke="black" class="w-10 h-10">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+        </button>
+    </div>
+<?php endif ?>
+<?php if(empty($favorit)): ?>
+    <div class="fixed right-24  md:right-48 -bottom-3 md:bottom-[61px] py-2 px-10 rounded-full">
+        <button id="fav" class="text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="0.5" stroke="black" class="w-10 h-10">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+        </button>
+    </div>
+<?php endif ?>
 
+    <div id="container"></div>
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="js/script.js"></script>
     <script src="../../node_modules/flowbite/dist/flowbite.js"></script>
