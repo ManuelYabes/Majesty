@@ -95,7 +95,7 @@ if(isset($_POST["submit"])){
                         </Label>
                         <input type="file" name="pp" id="pp" class="hidden">
                         <button type="submit" name="submit" class="flex">
-                            <span class="font-semibold">Next</span>
+                            <span class="font-semiboldtext-lg ">Next</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                             </svg>
@@ -105,12 +105,12 @@ if(isset($_POST["submit"])){
                 <form action="" method="POST" class="w-full md:w-[80%] h-[100%] flex-wrap flex flex-col items-start rounded gap-8">
                     <input type="hidden" name="id_pengguna" id="" value="<?= $profil[0]['id'] ?>">
                     <span class="w-[90%] mt-6 mx-auto flex justify-between text-lg md:text-xl font-bold">Ubah BioData<span class="font-medium"><button class="underline" type="submit" name="ubah">Save</button></span></span>
-                    <div class="w-[90%] mx-auto flex justify-between md:items-center"><span>Nama </span><input type="text" name="nama" value="<?=  $profil[0]['nama'] ?>" class="h-7 rounded border-0 drop-shadow"></div>
-                    <div class="w-[90%] mx-auto flex justify-between md:items-center"><span>Tanggal Lahir </span><input type="date" name="lahir" value="<?=  $profil[0]['tanggal_lahir'] ?>" class="h-7 rounded border-0 drop-shadow"></div>
-                    <div class="w-[90%] mx-auto flex justify-between md:items-center"><span>Jenis Kelamin </span><select type="text" name="gender" value="" class="rounded text-sm h-9 w-32 rounded border-0 drop-shadow"><option value="pria">Pria</option><option value="wanita">Wanita</option></select></div>
+                    <div class="w-[90%] mx-auto text-lg flex justify-between md:items-center"><span>Nama </span><input type="text" name="nama" value="<?=  $profil[0]['nama'] ?>" class="h-7 rounded border-0 drop-shadow"></div>
+                    <div class="w-[90%] mx-auto text-lg flex justify-between md:items-center"><span>Tanggal Lahir </span><input type="date" name="lahir" value="<?=  $profil[0]['tanggal_lahir'] ?>" class="h-7 rounded border-0 drop-shadow"></div>
+                    <div class="w-[90%] mx-auto text-lg flex justify-between md:items-center"><span>Jenis Kelamin </span><select type="text" name="gender" value="" class="rounded text-sm h-9 w-32 rounded border-0 drop-shadow"><option value="pria">Pria</option><option value="wanita">Wanita</option></select></div>
                     <span class="w-[90%] mt-3 mx-auto flex justify-between text-lg md:text-xl font-bold">Ubah Kontak</span>
-                    <div class="w-[90%] mx-auto flex flex-col md:flex-row md:justify-between md:items-center"><span>Email </span><input type="email" name="email" value="<?=  $profil[0]['email'] ?>" class="rounded border-0 drop-shadow"></div>
-                    <div class="w-[90%] mx-auto flex flex-col md:flex-row md:justify-between md:items-center"><span>No telepon </span><input type="number" name="phone" value="<?=  $profil[0]['no_telepon'] ?>" class="h-7 rounded border-0 drop-shadow"></div>
+                    <div class="w-[90%] mx-auto text-lg flex flex-col md:flex-row md:justify-between md:items-center"><span>Email </span><input type="email" name="email" value="<?=  $profil[0]['email'] ?>" class="rounded border-0 drop-shadow"></div>
+                    <div class="w-[90%] mx-auto text-lg flex flex-col md:flex-row md:justify-between md:items-center"><span>No telepon </span><input type="number" name="phone" value="<?=  $profil[0]['no_telepon'] ?>" class="h-7 rounded border-0 drop-shadow"></div>
                 </form>
             </div>
         </div>

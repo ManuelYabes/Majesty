@@ -4,7 +4,7 @@
                 <div class="flex absolute top-2 right-0 items-center pr-3 pointer-events-none">
                     <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
-                <input type="text" class="w-full h-9 rounded-md">
+                <input data-popover-target="searchContainer" data-popover-placement="bottom" data-popover-trigger="click" type="text" class="w-full h-9 rounded-md" id="search" autocomplete="off">
                 <div class="hidden w-full md:flex text-white flex-row justify-around">
                     <a class="" href="list.php">Daftar Baju</a>
                     <a class="" href="lainya.php?kategori=Pernikahan">Baju Pernikahan</a>
@@ -40,3 +40,11 @@
         </div>
         <div data-popper-arrow></div>
     </div>
+    <div data-popover id="searchContainer" role="tooltip" class="inline-block absolute invisible z-20 w-[60%] text-sm font-light text-gray-500 bg-white rounded border border-gray-200 shadow-sm opacity-0 transition-opacity duration-300 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+        <ul id="Container" class="p-2">
+    
+        </ul>
+    </div>
+
+<script src="js/jquery-3.6.1.min.js"></script>
+<script src="js/script.js"></script>

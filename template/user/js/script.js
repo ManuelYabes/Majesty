@@ -5,4 +5,10 @@ $(document).ready(function() {
         $('#fav').toggleClass('text-white');
         $('#container').load('ajax/fav.php?iduser=' + $('#iduser').val() + '&idbaju=' + $('#idbaju').val());
     });
+    $('#search').keyup(function(){
+        console.log('ea');
+        $.get('ajax/search.php?baju=' + $('#search').val(), function(data){
+            $('#Container').html(data);
+        });
+    })
 });

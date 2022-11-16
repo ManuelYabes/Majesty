@@ -77,7 +77,7 @@ $favorit = query("SELECT * FROM favorit WHERE id_pengguna = $idUser AND id_baju 
             <br>
             <br>
             <div class="w-full md:w-[47%] flex flex-col gap-y-2">
-                <span class="font-base text-lg md:text-xl pl-1">Harga: Rp.<?= $item[0]["harga"] ?>/ pcs</span>
+                <span class="font-base text-lg md:text-xl pl-1">Harga: Rp.<?= $item[0]["harga"] ?>/ hari</span>
                 <span class="font-base text-lg md:text-xl pl-1">berat:<?= $item[0]["berat"] ?></span>
                 <span class="font-base text-lg md:text-xl pl-1">kondisi:<?= $item[0]["kondisi"] ?></span>
                 <span class="font-base text-lg md:text-xl pl-1">Kategori:<?= $item[0]["kategori"] ?></span>
