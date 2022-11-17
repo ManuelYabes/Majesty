@@ -1,14 +1,27 @@
 $(document).ready(function() {
-    $('#fav').click(function(){
-        console.log("ea");
-        $('#fav').toggleClass('text-[#d7a86e]');
-        $('#fav').toggleClass('text-white');
-        $('#container').load('ajax/fav.php?iduser=' + $('#iduser').val() + '&idbaju=' + $('#idbaju').val());
-    });
     $('#search').keyup(function(){
         console.log('ea');
-        $.get('ajax/search.php?baju=' + $('#search').val(), function(data){
+        $.get('ajax/searchuser.php?user=' + $('#search').val(), function(data){
             $('#Container').html(data);
         });
-    })
+    });
+    $('#searchB').keyup(function(){
+        console.log('ea');
+        $.get('ajax/searchbaju.php?baju=' + $('#searchB').val(), function(data){
+            $('#Container').html(data);
+        });
+    });
+    $('#searchP').keyup(function(){
+        console.log('ea');
+        $.get('ajax/searchpeminjam.php?peminjam=' + $('#searchP').val(), function(data){
+            $('#Container').html(data);
+        });
+    });
+    $('#searchD').keyup(function(){
+        console.log('ea');
+        $.get('ajax/searchdipinjam.php?dipinjam=' + $('#searchD').val(), function(data){
+            $('#Container').html(data);
+        });
+    });
+    
 });
