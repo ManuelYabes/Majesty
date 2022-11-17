@@ -2,6 +2,23 @@
 
 require 'func/functions.php';
 session_start();
+if(isset($_COOKIE["key"]) && isset($_COOKIE["id"])){
+    $id = $_COOKIE['id'];
+    $key = $_COOKIE["key"];
+
+    $result = mysqli_query($conn,"SELECT * FROM pengguna WHERE id = $id");
+    $rows = mysqli_fetch_assoc($result);
+
+    if($key === hash('sha256', $rows["email"])){
+        $_SESSION['user'] = $rows["nama"];
+        $_SESSION['userID'] = $rows["id"];
+    }
+}
+
+if (!isset($_SESSION['user']) && !isset($_SESSION['userID'])) {
+    header("Location: login.php");
+    exit();
+}
 
 $idUser = $_SESSION['userID'];
 $profil = query("SELECT * FROM pengguna WHERE id = $idUser");

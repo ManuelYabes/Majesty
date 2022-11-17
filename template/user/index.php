@@ -37,7 +37,7 @@
                 <div class="column">
                     <p class="sub-heading">Peminjaman berbagai pakaian untuk pernikahan,adat daerah <p style="text-align:center ;"> pesta, dan yang lainnya.</p></p>
                 </div>
-                <a href=""><button class="button-masuk">Daftar/Masuk</button></a>
+                <a href="login.php"><button class="button-masuk">Daftar/Masuk</button></a>
             </div>
         </div>
 
