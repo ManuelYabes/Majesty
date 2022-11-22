@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#fav').click(function(){
+    $('#fav').click(()=>{
         console.log("ea");
         $('#fav').toggleClass('text-[#d7a86e]');
         $('#fav').toggleClass('text-white');

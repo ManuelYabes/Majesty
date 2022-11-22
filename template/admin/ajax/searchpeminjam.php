@@ -15,5 +15,6 @@ $result = query("SELECT * FROM peminjam WHERE code LIKE '%$keyword%'");
         <td class="py-4 px-6"><?= $row['nama'] ?></td>
         <td class="py-4 px-6"><?= $row['tanggal'] ?></td>
         <td class="py-4 px-6"><?= $row['tanggal_'] ?></td>
+        <td class="py-4 px-6">Rp<?= $row['total_harga'] ?></td>
     </tr>
 <?php endforeach ?>

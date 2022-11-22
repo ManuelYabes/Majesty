@@ -55,7 +55,7 @@ $peminjam = query("SELECT * FROM peminjam");
         </svg>
       </button>
     </div>
-    <div class="m-10 w-full">
+    <div class="mx-10 mt-9 w-full">
       <h1 class="text-[36px]">Permintaan Masuk</h1>
 
       <div class="flex mt-10">
@@ -88,7 +88,7 @@ $peminjam = query("SELECT * FROM peminjam");
                 <td class="py-4 px-6"><?= $row['nama'] ?></td>
                 <td class="py-4 px-6"><?= $row['tanggal'] ?></td>
                 <td class="py-4 px-6"><?= $row['tanggal_'] ?></td>
-                <td class="py-4 px-6"><?= $row['total_harga'] ?></td>
+                <td class="py-4 px-6">Rp<?= $row['total_harga'] ?></td>
               </tr>
             <?php endforeach ?>
           </tbody>

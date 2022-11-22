@@ -24,7 +24,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['userID'])) {
 
 $idUser = $_SESSION['userID'];
 $idnext = $_GET["idnext"];
-$history = query("SELECT peminjam.id,peminjam.nama,peminjam.id_pengguna,peminjam.pembayaran,peminjam.tanggal,peminjam.tanggal_,peminjam.nama,peminjam.ukuran,peminjam.code,daftar_baju.foto FROM peminjam LEFT JOIN daftar_baju ON peminjam.id_baju = daftar_baju.id_baju WHERE peminjam.id = '$idnext' AND peminjam.id_pengguna = $idUser");
+$history = query("SELECT peminjam.id,peminjam.nama,peminjam.total_harga,peminjam.id_pengguna,peminjam.pembayaran,peminjam.tanggal,peminjam.tanggal_,peminjam.nama,peminjam.ukuran,peminjam.code,daftar_baju.foto FROM peminjam LEFT JOIN daftar_baju ON peminjam.id_baju = daftar_baju.id_baju WHERE peminjam.id = '$idnext' AND peminjam.id_pengguna = $idUser");
 // var_dump($history);
 
 ?>
@@ -66,6 +66,7 @@ $history = query("SELECT peminjam.id,peminjam.nama,peminjam.id_pengguna,peminjam
                         <span class="text-2xl md:text-3xl font-[100]"><?= $history[0]['nama'] ?></span>
                         <span class="text-lg md:text-xl mt-4">Ukuran <?= $history[0]['ukuran'] ?></span>
                         <span class="text-lg md:text-xl">Pembayaran <?= $history[0]['pembayaran'] ?></span>
+                        <span class="text-lg md:text-xl">Total Harga Rp<?= $history[0]['total_harga'] ?></span>
                         <span class="text-lg md:text-xl">Tanggal <?= $history[0]['tanggal'] ?> Sampai <?= $history[0]['tanggal_'] ?> </span>
                         <span class="text-lg md:text-xl">Code <?= $history[0]['code'] ?></span>
                     </div>

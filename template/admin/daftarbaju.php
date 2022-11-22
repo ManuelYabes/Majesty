@@ -14,6 +14,20 @@ if (isset($_SESSION['id'])) {
 
 $baju = query("SELECT * FROM daftar_baju");
 
+if (isset($_POST['submit'])) {
+  if (tambahBaju($_POST) > 0) {
+    echo "<script>   
+        alert('suksess')
+        document.location.href = 'daftarbaju.php';
+    </script>";
+  } else {
+    echo "<script>   
+        alert('gagal')
+        document.location.href = 'daftarbaju.php';
+    </script>";
+  }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +67,7 @@ $baju = query("SELECT * FROM daftar_baju");
         </svg>
       </button>
     </div>
-    <div class="m-10 w-full">
+    <div class="mx-10 mt-9 w-full">
       <h1 class="text-[36px]">Daftar Pakaian</h1>
 
       <div class="flex mt-10">
@@ -69,7 +83,9 @@ $baju = query("SELECT * FROM daftar_baju");
             </div>
           </div>
         </form>
-        <a href="tambahbuku.php" class="ml-auto py-2 px-3 h-fit border border-green rounded-2xl">Tambah Pakaian</a>
+        <button class="ml-auto py-2 px-3 h-fit border border-green rounded-2xl" type="button" data-modal-toggle="popup-tambah">
+          Tambah Pakaian
+        </button>
       </div>
 
       <div class="h-[29.4rem] overflow-y-auto relative mt-5">
@@ -138,7 +154,7 @@ $baju = query("SELECT * FROM daftar_baju");
         <div id="popup-hapus" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 md:inset-0 h-modal md:h-full">
           <div class="relative w-full max-w-md h-full md:h-auto">
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-hapus">
+              <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparents hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-hapus">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                 </svg>
@@ -164,6 +180,76 @@ $baju = query("SELECT * FROM daftar_baju");
       </div>
     </div>
   </div>
+
+  <div id="popup-tambah" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 md:inset-0 h-modal md:h-full">
+    <div class="relative w-full max-w-md h-full md:h-auto">
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparents hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="popup-tambah">
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+        <form class="p-6 text-center" action="" method="POST" enctype="multipart/form-data">
+          <h1 class="font-bold text-2xl">Tambah Pakaian</h1>
+          <div class="relative z-0 mb-6 mt-6 w-full group">
+            <input type="file" name="fotoBaju" id="fotoBaju" class="block w-full text-sm text-gray-900 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+          </div>
+          <div class="text-start grid grid-cols-2 gap-4">
+
+            <div class="relative z-0 mb-6 w-full group">
+              <input type="text" name="namaBaju" id="floating_namaBaju" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparents border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="floating_namaBaju" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nama Baju</label>
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+              <select name="kategori" id="kategori" class="block py-2.5 px-0 w-full text-sm text-gray-900 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+                <option value="Pernikahan">Pernikahan</option>
+                <option value="Adat">Adat</option>
+                <option value="Pasta">Pasta</option>
+                <option value="Formal">Formal</option>
+              </select>
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+              <input type="text" name="deskripsi" id="floating_deskripsi" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparents border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="floating_deskripsi" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Deskripsi</label>
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+              <input type="text" name="harga" id="floating_harga" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparents border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="floating_harga" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Harga</label>
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+              <input type="text" name="pembayaran" id="floating_pembayaran" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparents border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="floating_pembayaran" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Pembayaran</label>
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+              <input type="text" name="ukuran" id="floating_ukuran" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparents border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="floating_ukuran" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Ukuran</label>
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+              <input type="number" name="stok" id="floating_stok" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparents border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="floating_stok" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Stok</label>
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+              <select name="kondisi" id="kondisi" class="block py-2.5 px-0 w-full text-sm text-gray-900 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+                <option value="Baru Belum Pernah Dicuci">Baru Belum Pernah Dicuci</option>
+                <option value="Sudah Dicuci">Sudah Dicuci</option>
+              </select>
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+              <input type="number" name="berat" id="floating_berat" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparents border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <label for="floating_berat" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Berat</label>
+            </div>
+            <div class="flex">
+              <button type="submit" name="submit" class="w-[90%] h-[50%] mx-4 my-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script src="js/jquery-3.6.1.min.js"></script>
   <script src="js/script.js"></script>
   <script src="../../node_modules/flowbite/dist/flowbite.js"></script>

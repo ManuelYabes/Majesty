@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         'transparent': 'rgba(0,0,0,0.5)',
+        'transparents': 'rgba(0,0,0,0.0)',
       },
       dropShadow: {
         'xxl': '0px 6px 6px rgba(0,0,0,0.3)',

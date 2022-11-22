@@ -51,8 +51,13 @@ $peminjam = query("SELECT * FROM pengguna CROSS JOIN peminjam ON peminjam.id_pen
           <a href="daftardipinjam.php" class="block"><img src="../../static/foto/keluarhitam.svg" alt="" /></a>
         </div>
       </div>
+      <button class="mt-auto z-20 group" data-modal-toggle="popup-modal">
+        <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="group-focus:stroke-black" d="M23.375 22L28.875 16.5M28.875 16.5L23.375 11M28.875 16.5L9.625 16.5M17.875 22V23.375C17.875 25.6532 16.0282 27.5 13.75 27.5H8.25C5.97183 27.5 4.125 25.6532 4.125 23.375V9.625C4.125 7.34683 5.97183 5.5 8.25 5.5H13.75C16.0282 5.5 17.875 7.34683 17.875 9.625V11" stroke="#E5E7EB" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
     </div>
-    <div class="m-10 w-full">
+    <div class="mx-10 mt-9 w-full">
       <h1 class="text-[36px]">Pakaian Keluar</h1>
 
       <div class="flex mt-10">
@@ -60,11 +65,6 @@ $peminjam = query("SELECT * FROM pengguna CROSS JOIN peminjam ON peminjam.id_pen
           <div class="flex">
             <div class="relative w-fit">
               <input type="search" id="searchD" class="block p-2.5 w-[441px] z-20 text-sm text-black bg-white rounded-r-lg rounded-l-lg border border-black" placeholder="Cari User" autocomplete="off" required />
-              <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-white rounded-r-lg border border border-black hover:bg-black group">
-                <svg aria-hidden="true" class="w-5 h-5 group-hover:stroke-white" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-              </button>
             </div>
           </div>
         </form>
@@ -81,7 +81,7 @@ $peminjam = query("SELECT * FROM pengguna CROSS JOIN peminjam ON peminjam.id_pen
             </tr>
           </thead>
           <tbody class="text-center" id="Container">
-            <?php foreach($peminjam as $row): ?>
+            <?php foreach ($peminjam as $row) : ?>
               <tr class="bg-[#A2DBFA] border-b text-">
                 <th scope="row" class="py-4 px-6 font-light text-black whitespace-nowrap">
                   <?= $row['nama_pengguna'] ?>

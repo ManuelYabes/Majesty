@@ -1116,6 +1116,10 @@ input:checked + .toggle-bg {
   z-index: 50;
 }
 
+.-z-10 {
+  z-index: -10;
+}
+
 .z-40 {
   z-index: 40;
 }
@@ -1126,10 +1130,6 @@ input:checked + .toggle-bg {
 
 .m-\[2px\] {
   margin: 2px;
-}
-
-.m-10 {
-  margin: 2.5rem;
 }
 
 .m-auto {
@@ -1149,6 +1149,11 @@ input:checked + .toggle-bg {
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 
 .mt-6 {
@@ -1205,6 +1210,10 @@ input:checked + .toggle-bg {
 
 .mt-auto {
   margin-top: auto;
+}
+
+.mt-9 {
+  margin-top: 2.25rem;
 }
 
 .ml-auto {
@@ -1535,6 +1544,11 @@ input:checked + .toggle-bg {
 
 .-translate-y-4 {
   --tw-translate-y: -1rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-6 {
+  --tw-translate-y: -1.5rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1894,14 +1908,18 @@ input:checked + .toggle-bg {
   background-color: rgb(224 36 36 / var(--tw-bg-opacity));
 }
 
-.bg-gray-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+.bg-transparents {
+  background-color: rgba(0,0,0,0.0);
 }
 
 .bg-blue-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(26 86 219 / var(--tw-bg-opacity));
+}
+
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
 .bg-white\/50 {
@@ -2033,6 +2051,11 @@ input:checked + .toggle-bg {
   padding-bottom: 0.625rem;
 }
 
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -2072,6 +2095,10 @@ input:checked + .toggle-bg {
 
 .text-center {
   text-align: center;
+}
+
+.text-start {
+  text-align: start;
 }
 
 .text-2xl {
@@ -2416,8 +2443,17 @@ input:checked + .toggle-bg {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.peer:focus ~ .peer-focus\:left-0 {
+  left: 0px;
+}
+
 .peer:focus ~ .peer-focus\:-translate-y-4 {
   --tw-translate-y: -1rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.peer:focus ~ .peer-focus\:-translate-y-6 {
+  --tw-translate-y: -1.5rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -2425,6 +2461,10 @@ input:checked + .toggle-bg {
   --tw-scale-x: .75;
   --tw-scale-y: .75;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.peer:focus ~ .peer-focus\:font-medium {
+  font-weight: 500;
 }
 
 .peer:focus ~ .peer-focus\:text-blue-600 {
@@ -2554,6 +2594,11 @@ input:checked + .toggle-bg {
   --tw-ring-color: rgb(75 85 99 / var(--tw-ring-opacity));
 }
 
+.dark .dark\:focus\:ring-blue-800:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(30 66 159 / var(--tw-ring-opacity));
+}
+
 .peer:focus ~ .dark .peer-focus\:dark\:text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(63 131 248 / var(--tw-text-opacity));
@@ -2626,8 +2671,8 @@ input:checked + .toggle-bg {
     aspect-ratio: 20/4;
   }
 
-  .md\:h-\[60\%\] {
-    height: 60%;
+  .md\:h-\[40\%\] {
+    height: 40%;
   }
 
   .md\:h-\[80\%\] {
@@ -2642,12 +2687,12 @@ input:checked + .toggle-bg {
     height: 100%;
   }
 
-  .md\:h-auto {
-    height: auto;
+  .md\:h-\[60\%\] {
+    height: 60%;
   }
 
-  .md\:h-\[40\%\] {
-    height: 40%;
+  .md\:h-auto {
+    height: auto;
   }
 
   .md\:w-\[80\%\] {

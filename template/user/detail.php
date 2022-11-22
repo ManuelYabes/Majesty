@@ -32,7 +32,7 @@ if(isset($_GET['error'])){
 
 $idUser = $_SESSION['userID'];
 $favorit = query("SELECT * FROM favorit WHERE id_pengguna = $idUser AND id_baju = $id");
-// var_dump($favorit);
+var_dump($favorit);
 
 ?>
 <!DOCTYPE html>

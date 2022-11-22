@@ -54,7 +54,7 @@ $user = query("SELECT * FROM pengguna");
         </svg>
       </button>
     </div>
-    <div class="m-10 w-full">
+    <div class="mx-10 mt-9 w-full">
       <h1 class="text-[36px]">Daftar User</h1>
 
       <form>

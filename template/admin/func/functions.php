@@ -13,69 +13,33 @@ function query($query)
     return $rows;
 }
 
-function randomSTR($lenght)
-{
-	$str = uniqid();
-	return substr(str_shuffle($str), 0, $lenght);
-}
-function pinjam($data){
-    global $conn;
-    $ukuran = $data["ukuran"];
-    $pembayaran = $data["pembayaran"];
-    $tanggal = $data["tanggal"];
-    $tanggal2 = $data["tanggal2"];
-        if($tanggal > $tanggal2 ){
-            return false;
-        }
-    $nama = $data["nama"];
-    $id = intval($data["id"]);
-    $idUser = intval($data['iduser']);
-    $code = randomSTR(6);
-
-    mysqli_query($conn,"INSERT INTO peminjam VALUES('',$id,$idUser,'$nama','$ukuran','$pembayaran','$tanggal','$tanggal2','$code')");
-    $idnext = mysqli_fetch_assoc(mysqli_query($conn,"SELECT id FROM peminjam WHERE code = '$code'"));
-    return $idnext['id'];
-}
-
-function ubah($data){
-    global $conn;
-    $id = $data['id_pengguna'];
-    $nama = $data['nama'];
-    $lahir = $data['lahir'];
-    $gender = $data['gender'];
-    $email = $data['email'];
-    $phone = $data['phone'];
-    
-    $result = query("SELECT * FROM pengguna WHERE email = '$email' AND id != $id");
-    if(!empty($result)){
-        return false;
-    }
-    mysqli_query($conn,"UPDATE pengguna SET 
-                    nama = '$nama',
-                    email = '$email',
-                    tanggal_lahir = '$lahir',
-                    jenis_kelamin = '$gender',
-                    no_telepon = $phone
-                WHERE id = $id");
-    return mysqli_affected_rows($conn);
-}
-
-function uploadPP($data){
+function tambahBaju($data){
     global $conn;
     $foto = upload();
     if(!$foto){
         return false;
     }
-    $id = $data['id_pengguna'];
-    mysqli_query($conn,"UPDATE pengguna SET foto = '$foto' WHERE id = $id");
+    $namaBaju = $data['namaBaju'];
+    $kategori = $data['kategori'];
+    $deskripsi = $data['deskripsi'];
+    $harga = $data['harga'];
+    $pembayaran = $data['pembayaran'];
+    $ukuran = $data['ukuran'];
+    $stok = $data['stok'];
+    $kondisi = $data['kondisi'];
+    $berat = $data['berat'];
+
+    $insert = "INSERT INTO daftar_baju VALUES('','$foto','$namaBaju','$ukuran','$pembayaran','$stok','$harga','$berat','$kondisi','$kategori','$deskripsi')";
+    mysqli_query($conn,$insert);
     return mysqli_affected_rows($conn);
+    
 }
 
 function upload(){
-	$namaFile = $_FILES['pp']['name'];
-	$ukuranFile = $_FILES['pp']['size'];
-	$error = $_FILES['pp']['error'];
-	$tmpName = $_FILES['pp']['tmp_name'];
+	$namaFile = $_FILES['fotoBaju']['name'];
+	$ukuranFile = $_FILES['fotoBaju']['size'];
+	$error = $_FILES['fotoBaju']['error'];
+	$tmpName = $_FILES['fotoBaju']['tmp_name'];
 
 	if ($error === 4){
 		echo "<script>
