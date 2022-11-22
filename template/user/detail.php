@@ -32,7 +32,7 @@ if(isset($_GET['error'])){
 
 $idUser = $_SESSION['userID'];
 $favorit = query("SELECT * FROM favorit WHERE id_pengguna = $idUser AND id_baju = $id");
-var_dump($favorit);
+// var_dump($favorit);
 
 ?>
 <!DOCTYPE html>
@@ -101,7 +101,7 @@ var_dump($favorit);
 
 <?php if(!empty($favorit)): ?>
     <div class="fixed right-24  md:right-48 -bottom-3 md:bottom-[61px] py-2 px-10 rounded-full">
-        <button id="fav" class="text-[#d7a86e]">
+        <button id="favs" class="text-[#d7a86e]">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="0.5" stroke="black" class="w-10 h-10">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
             </svg>
@@ -110,7 +110,7 @@ var_dump($favorit);
 <?php endif ?>
 <?php if(empty($favorit)): ?>
     <div class="fixed right-24  md:right-48 -bottom-3 md:bottom-[61px] py-2 px-10 rounded-full">
-        <button id="fav" class="text-white">
+        <button id="favs" class="text-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="0.5" stroke="black" class="w-10 h-10">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
             </svg>
