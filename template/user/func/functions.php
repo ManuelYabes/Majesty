@@ -41,7 +41,11 @@ function pinjam($data){
     $hari = $hasil / 86400;
     $totalHarga = $hari === 0 ? $hargaBaju : $hari * $hargaBaju ;
     $stok = intval($data['stokBaju']);
+    if($stok<=0){
+        return false;
+    }
     $stokBaru = $stok - 1;
+
     
     mysqli_query($conn,"UPDATE daftar_baju SET stok=$stokBaru WHERE id_baju = $id");
     mysqli_query($conn,"INSERT INTO peminjam VALUES('',$id,$idUser,'$nama','$namaUser','$ukuran','$pembayaran','$tanggal','$tanggal2','$code','$totalHarga')");
