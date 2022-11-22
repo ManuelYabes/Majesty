@@ -39,7 +39,7 @@ function pinjam($data){
     $tanggal2_ = strtotime($data['tanggal2']);
     $hasil = $tanggal2_ - $tanggal_;
     $hari = $hasil / 86400;
-    $totalHarga = $hari * $hargaBaju;
+    $totalHarga = $hari === 0 ? $hargaBaju : $hari * $hargaBaju ;
     $stok = intval($data['stokBaju']);
     $stokBaru = $stok - 1;
     
