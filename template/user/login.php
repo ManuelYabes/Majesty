@@ -103,9 +103,12 @@ if (isset($_POST["submit"])) {
         <p>tidak ada user</p>
     <?php endif ?>
 
-    <main class="w-[100%] h-screen flex flex-col md:flex-row justify-evenly items-center">
-        <img class="mt-24 md:my-auto w-[90%] md:w-[40%]" src="../../static/Foto/undraw_secure_login_pdn4 1.png" alt="">
-        <form action="" method="POST" class="flex flex-col items-center w-[80%] md:w-[30%] h-[50%] md:h-[60%] bg-white drop-shadow-xl rounded-xl">
+    <div class="fixed w-screen h-screen top-0 bottom-0 right-0 left-0 bg-[#d7a86e] text-[#d7a86e] z-0">
+        <img class="fixed w-screen h-screen top-0 bottom-0 right-0 left-0" src="../../static/foto/—Pngtree—golden thai pattern batik_5824941 1.png" alt="">
+    </div>
+    <main class="w-[100%] z-10 h-screen flex flex-col md:flex-row justify-evenly items-center">
+        <!-- <img class="z-10 mt-24 md:my-auto w-[90%] md:w-[40%]" src="../../static/Foto/undraw_secure_login_pdn4 1.png" alt=""> -->
+        <form action="" method="POST" class="flex flex-col items-center w-[80%] md:w-[30%] h-[50%] md:h-[40%] bg-white drop-shadow-xxl rounded-xl">
             <span class="mt-8">Login</span>
             <span>Belum Punya Akun?<a href="signup.php" class="underline">SignUp</a></span>
 

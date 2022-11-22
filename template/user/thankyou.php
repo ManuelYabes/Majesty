@@ -3,22 +3,22 @@
 require "func/functions.php";
 session_start();
 
-if(isset($_COOKIE["key"]) && isset($_COOKIE["id"])){
+if (isset($_COOKIE["key"]) && isset($_COOKIE["id"])) {
     $id = $_COOKIE['id'];
     $key = $_COOKIE["key"];
 
-    $result = mysqli_query($conn,"SELECT * FROM pengguna WHERE id = $id");
+    $result = mysqli_query($conn, "SELECT * FROM pengguna WHERE id = $id");
     $rows = mysqli_fetch_assoc($result);
 
-    if($key === hash('sha256', $rows["email"])){
+    if ($key === hash('sha256', $rows["email"])) {
         $_SESSION['user'] = $rows["nama"];
         $_SESSION['userID'] = $rows["id"];
     }
 }
 
 if (!isset($_SESSION['user']) && !isset($_SESSION['userID'])) {
-	header("Location: list.php");
-	exit();
+    header("Location: list.php");
+    exit();
 }
 
 
@@ -30,6 +30,7 @@ $history = query("SELECT peminjam.id,peminjam.nama,peminjam.id_pengguna,peminjam
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,24 +41,26 @@ $history = query("SELECT peminjam.id,peminjam.nama,peminjam.id_pengguna,peminjam
             font-family: 'Poppins', sans-serif;
             src: url(../../staic/Assets/Poppins-ExtraLight.ttf);
         }
-        *{
+
+        * {
             font-family: 'Poppins', sans-serif;
         }
     </style>
 </head>
+
 <body>
 
-<?php include('nav.php'); ?>
+    <?php include('nav.php'); ?>
 
     <main>
         <div class="flex flex-col items-center text-lg md:text-2xl mt-4">
             <Span>Terimakasih telah meminjam pakaian di kami</Span>
-            <span>jangan lupa tunjukan pesan ini ke kasir</span>
-            <span>Untuk pengambilan</span>
+            <span>jangan lupa tunjukan pesan ini ke kasir Untuk pengambilan</span>
+            <span class="text-xl">klik gambar untuk ke riwayat</span>
         </div>
         <div>
             <div class="flex flex-row justify-center w-full p-10">
-                <div class="flex flex-col md:flex-row justify-around w-[90%] md:w-[60%] border-2">
+                <a href="profil.php" class="flex flex-col md:flex-row justify-around w-[90%] md:w-[60%] border-2">
                     <img class="" src="../../media/img/<?= $history[0]['foto'] ?>" alt="">
                     <div class="flex flex-col justify-center">
                         <span class="text-2xl md:text-3xl font-[100]"><?= $history[0]['nama'] ?></span>
@@ -66,11 +69,12 @@ $history = query("SELECT peminjam.id,peminjam.nama,peminjam.id_pengguna,peminjam
                         <span class="text-lg md:text-xl">Tanggal <?= $history[0]['tanggal'] ?> Sampai <?= $history[0]['tanggal_'] ?> </span>
                         <span class="text-lg md:text-xl">Code <?= $history[0]['code'] ?></span>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </main>
     <script src="../../node_modules/flowbite/dist/flowbite.js"></script>
 
 </body>
+
 </html>

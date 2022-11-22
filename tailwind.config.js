@@ -7,7 +7,7 @@ module.exports = {
         'transparent': 'rgba(0,0,0,0.5)',
       },
       dropShadow: {
-        'xxl': '5px 5px 3px rgba(0,0,0,0.2)',
+        'xxl': '0px 6px 6px rgba(0,0,0,0.3)',
       },
     },
   },

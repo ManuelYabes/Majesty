@@ -79,10 +79,12 @@ if (isset($_POST["submit"])) {
             <li class="font-normal text-xl text-center"><a class="text-black no-underline hover:pointer hover:underline" href="signup.php">Signup</a></li>
         </ul>
     </div>
-
+    <div class="fixed w-screen h-screen top-0 bottom-0 right-0 left-0 bg-[#d7a86e] text-[#d7a86e] z-0">
+        <img class="fixed w-screen h-screen top-0 bottom-0 right-0 left-0" src="../../static/foto/—Pngtree—golden thai pattern batik_5824941 1.png" alt="">
+    </div>
     <main class="w-[100%] h-screen flex flex-col md:flex-row justify-evenly items-center">
-        <img class="mt-24 md:my-auto w-[90%] md:w-[40%]" src="../../static/Foto/undraw_secure_login_pdn4 1.png" alt="">
-        <form action="" method="POST" class="mt-4 md:mt-0 flex flex-col items-center w-[80%] md:w-[30%] h-[50%] md:h-[60%] bg-white drop-shadow-xl rounded-xl">
+        <!-- <img class="mt-24 md:my-auto w-[90%] md:w-[40%]" src="../../static/Foto/undraw_secure_login_pdn4 1.png" alt=""> -->
+        <form action="" method="POST" class="mt-4 md:mt-0 flex flex-col items-center w-[80%] md:w-[30%] h-[50%] md:h-[60%] bg-white drop-shadow-xxl rounded-xl">
             <span class="mt-8">Daftar</span>
             <span>Sudah Punya Akun?<a href="login.php" class="underline">Login</a></span>
 
