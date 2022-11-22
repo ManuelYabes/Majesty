@@ -94,6 +94,7 @@ $favorit = query("SELECT * FROM favorit WHERE id_pengguna = $idUser AND id_baju 
         <input type="hidden" name="listUkuran" id="" value="<?= $item[0]['ukuran'] ?>">
         <input type="hidden" name="listBayar" id="" value="<?= $item[0]['pembayaran'] ?>">
         <input type="hidden" name="nama" id="" value="<?= $item[0]['nama'] ?>">
+        <input type="hidden" name="stokBaju" id="" value="<?= $item[0]['stok'] ?>">
         <input type="hidden" name="id" id="idbaju" value="<?= $item[0]['id_baju'] ?>">
         <input type="hidden" name="iduser" id="iduser" value="<?= $_SESSION['userID'] ?>">
         <button class="w-28 h-8 fixed right-2 md:right-24 bottom-2 md:bottom-20 rounded-full bg-[#d7a86e]" type="submit" name="submit" id="">Pesan</button>

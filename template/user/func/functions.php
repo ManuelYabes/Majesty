@@ -40,7 +40,10 @@ function pinjam($data){
     $hasil = $tanggal2_ - $tanggal_;
     $hari = $hasil / 86400;
     $totalHarga = $hari * $hargaBaju;
-
+    $stok = intval($data['stokBaju']);
+    $stokBaru = $stok - 1;
+    
+    mysqli_query($conn,"UPDATE daftar_baju SET stok=$stokBaru WHERE id_baju = $id");
     mysqli_query($conn,"INSERT INTO peminjam VALUES('',$id,$idUser,'$nama','$namaUser','$ukuran','$pembayaran','$tanggal','$tanggal2','$code','$totalHarga')");
     $idnext = mysqli_fetch_assoc(mysqli_query($conn,"SELECT id FROM peminjam WHERE code = '$code'"));
     return $idnext['id'];

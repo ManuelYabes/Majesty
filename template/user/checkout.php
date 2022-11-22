@@ -29,6 +29,7 @@ $nama = $_POST['nama'];
 $id = $_POST['id'];
 $idUser = $_POST["iduser"];
 $tanggal = date('Y-m-d');
+$stok = $_POST['stokBaju'];
 
 $info = query("SELECT * FROM daftar_baju WHERE id_baju=$id");
 
@@ -113,6 +114,7 @@ if(isset($_POST['submit-checkout'])){
             <input type="hidden" name="nama" value="<?= $nama ?>">
             <input type="hidden" name="id" value="<?= $id ?>">
             <input type="hidden" name="iduser" value="<?= $idUser ?>">
+            <input type="hidden" name="stokBaju" value="<?= $stok ?>">
             <button class="fixed right-2 md:right-24 bottom-2 md:bottom-24 py-2 px-10 rounded-full bg-[#d7a86e]" type="submit" name="submit-checkout" id="submit">Checkout</button>
         </div>
     </form>
