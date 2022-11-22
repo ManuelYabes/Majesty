@@ -34,7 +34,14 @@ function pinjam($data){
     $namaUser = $_SESSION['user'];
     $code = randomSTR(6);
 
-    mysqli_query($conn,"INSERT INTO peminjam VALUES('',$id,$idUser,'$nama','$namaUser','$ukuran','$pembayaran','$tanggal','$tanggal2','$code')");
+    $hargaBaju = $data['harga'];
+    $tanggal_ = strtotime($data['tanggal']);
+    $tanggal2_ = strtotime($data['tanggal2']);
+    $hasil = $tanggal2_ - $tanggal_;
+    $hari = $hasil / 86400;
+    $totalHarga = $hari * $hargaBaju;
+
+    mysqli_query($conn,"INSERT INTO peminjam VALUES('',$id,$idUser,'$nama','$namaUser','$ukuran','$pembayaran','$tanggal','$tanggal2','$code','$totalHarga')");
     $idnext = mysqli_fetch_assoc(mysqli_query($conn,"SELECT id FROM peminjam WHERE code = '$code'"));
     return $idnext['id'];
 }

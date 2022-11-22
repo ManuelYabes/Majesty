@@ -3,10 +3,17 @@
 require '../func/functions.php';
 
 $keyword  = $_GET["peminjam"];
-$result = query("SELECT * FROM peminjam WHERE nama_pengguna LIKE '%$keyword%' LIMIT 0,5");
+$result = query("SELECT * FROM peminjam WHERE code LIKE '%$keyword%'");
 
 ?>
 
-<?php foreach($result as $row): ?>
-    <li class="flex items-center p-1 gap-2 list-disc"><?= $row["nama_pengguna"] ?> <span><?= $row['nama'] ?></span></li>
+<?php foreach ($result as $row) : ?>
+    <tr class="bg-[#A2DBFA] border-b text-">
+        <th scope="row" class="py-4 px-6 font-normal text-black whitespace-nowrap">
+            <?= $row['nama_pengguna'] ?>
+        </th>
+        <td class="py-4 px-6"><?= $row['nama'] ?></td>
+        <td class="py-4 px-6"><?= $row['tanggal'] ?></td>
+        <td class="py-4 px-6"><?= $row['tanggal_'] ?></td>
+    </tr>
 <?php endforeach ?>

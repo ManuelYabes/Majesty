@@ -15,7 +15,7 @@ function signup($data)
     $email = $data['email'];
     $password = $data['password'];
 
-    mysqli_query($conn, "INSERT INTO pengguna VALUES('','$nama','$email','$password')");
+    mysqli_query($conn, "INSERT INTO pengguna VALUES('','$nama','$email','$password','','','','')");
     return mysqli_affected_rows($conn);
 }
 

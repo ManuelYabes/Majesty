@@ -22,7 +22,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['userID'])) {
 
 $idUser = $_SESSION['userID'];
 $profil = query("SELECT * FROM pengguna WHERE id = $idUser");
-$history = query("SELECT peminjam.id,peminjam.id_baju,peminjam.id_pengguna,peminjam.tanggal,peminjam.tanggal_,peminjam.code,peminjam.ukuran,peminjam.pembayaran,daftar_baju.id_baju,daftar_baju.foto,daftar_baju.nama FROM peminjam LEFT JOIN daftar_baju ON peminjam.id_baju = daftar_baju.id_baju WHERE peminjam.id_pengguna = $idUser ORDER BY peminjam.id DESC LIMIT 0,12");
+$history = query("SELECT peminjam.id,peminjam.total_harga,peminjam.id_baju,peminjam.id_pengguna,peminjam.tanggal,peminjam.tanggal_,peminjam.code,peminjam.ukuran,peminjam.pembayaran,daftar_baju.id_baju,daftar_baju.foto,daftar_baju.nama FROM peminjam LEFT JOIN daftar_baju ON peminjam.id_baju = daftar_baju.id_baju WHERE peminjam.id_pengguna = $idUser ORDER BY peminjam.id DESC LIMIT 0,12");
 // $favorit = query("SELECT * FROM favorit CROSS JOIN daftar_baju on favorit.id_baju = daftar_baju.id_baju WHERE id_pengguna = $idUser");
 
 ?>
@@ -80,6 +80,7 @@ $history = query("SELECT peminjam.id,peminjam.id_baju,peminjam.id_pengguna,pemin
                             <span class="text-xl font-bold"><?= $row['nama'] ?></span>
                             <span class="text-xl">Peminjaman dilakukan pada tanggal: <?= $row['tanggal'] ?> <br> Sampai <?= $row['tanggal_'] ?></span>
                             <span class="text-xl">Pembayaran <?= $row['pembayaran'] ?></span>
+                            <span class="text-xl">Total Harga Rp<?= $row['total_harga'] ?></span>
                             <span class="text-xl">Ukuran <?= $row['ukuran'] ?></span>
                             <span class="text-xl">code <?= $row['code'] ?></span>
                         </div>

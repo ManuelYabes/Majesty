@@ -3,9 +3,6 @@
 require 'func/functions.php';
 session_start();
 
-$pernikahaan = query("SELECT * FROM daftar_baju WHERE kategori = 'Pernikahan'");
-$formal = query("SELECT * FROM daftar_baju WHERE kategori = 'Formal'");
-
 if(isset($_COOKIE["key"]) && isset($_COOKIE["id"])){
     $id = $_COOKIE['id'];
     $key = $_COOKIE["key"];
@@ -80,7 +77,7 @@ if(isset($_POST['submit-checkout'])){
         <div class="w-fit h-auto"><img class="h-full" src="../../media/img/<?= $info[0]['foto'] ?>"></div>
         <div class="w-full h-auto flex flex-col gap-y-2">
             <span class="font-base text-2xl md:text-3xl pl-1"><?= $info[0]["nama"] ?></span>
-            <span class="font-base text-lg md:text-xl pl-1">Harga: Rp.<?= $info[0]["harga"] ?>/ pcs</span>
+            <span class="font-base text-lg md:text-xl pl-1">Harga: Rp.<?= $info[0]["harga"] ?>/ Hari</span>
             <span class="font-base text-lg md:text-xl pl-1">berat:<?= $info[0]["berat"] ?></span>
             <span class="font-base text-lg md:text-xl pl-1">kondisi:<?= $info[0]["kondisi"] ?></span>
             <span class="font-base text-lg md:text-xl pl-1">Kategori:<?= $info[0]["kategori"] ?></span>
@@ -112,6 +109,7 @@ if(isset($_POST['submit-checkout'])){
                 <span class="mx-4"> - </span>
                 <input class="rounded-full" type="date" name="tanggal2" min="<?= $tanggal ?>" required>
             </div>
+            <input type="hidden" name="harga" value="<?= $info[0]['harga'] ?>">
             <input type="hidden" name="nama" value="<?= $nama ?>">
             <input type="hidden" name="id" value="<?= $id ?>">
             <input type="hidden" name="iduser" value="<?= $idUser ?>">
