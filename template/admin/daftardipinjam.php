@@ -37,7 +37,7 @@ $peminjam = query("SELECT * FROM peminjam WHERE tanggal <= '$tanggal' AND tangga
             </ul>
     </div>
     <ul>
-        <?php foreach($peminjam as $row): ?>
+        <?php foreach($peminjam as $row): ?> 
             <li><?= $row['nama'] ?>
             <?= $row['tanggal'] ?> --
             <?= $row['tanggal_'] ?></li>
