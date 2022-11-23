@@ -61,8 +61,8 @@ $history = query("SELECT peminjam.id,peminjam.nama,peminjam.total_harga,peminjam
         </div>
         <div>
             <div class="flex flex-row justify-center w-full p-10">
-                <a href="profil.php" class="flex flex-col md:flex-row justify-around w-[90%] md:w-[60%] border-2">
-                    <img class="w-[10rem] h-auto aspect-[1/1.3]" src="../../media/img/<?= $history[0]['foto'] ?>" alt="">
+                <a href="profil.php" class="flex flex-col md:flex-row justify-around items-center w-[90%] md:w-[60%] border-2">
+                    <img class="w-[10rem] h-auto aspect-[1/1.3] mb-4 md:mb-0" src="../../media/img/<?= $history[0]['foto'] ?>" alt="">
                     <div class="flex flex-col justify-center">
                         <span class="text-2xl md:text-3xl font-[100]"><?= $history[0]['nama'] ?></span>
                         <span class="text-lg md:text-xl mt-4">Ukuran <?= $history[0]['ukuran'] ?></span>
