@@ -35,6 +35,7 @@ if (isset($_POST['reg'])) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Majesty</title>
     <link rel="stylesheet" href="../../tailwind/output.css" />
     <style>
       @font-face {

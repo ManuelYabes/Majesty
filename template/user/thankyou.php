@@ -33,6 +33,7 @@ $history = query("SELECT peminjam.id,peminjam.nama,peminjam.total_harga,peminjam
 
 <head>
     <meta charset="UTF-8">
+    <title>Majesty</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../tailwind/output.css">

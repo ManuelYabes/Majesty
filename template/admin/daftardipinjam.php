@@ -26,7 +26,7 @@ $peminjam = query("SELECT * FROM pengguna CROSS JOIN peminjam ON peminjam.id_pen
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Majesty</title>
   <link rel="stylesheet" href="../../tailwind/output.css" />
   <style>
     @font-face {
