@@ -1292,6 +1292,30 @@ input:checked + .toggle-bg {
   aspect-ratio: 20/10;
 }
 
+.aspect-\[\] {
+  aspect-ratio: ;
+}
+
+.aspect-\[1\/3\] {
+  aspect-ratio: 1/3;
+}
+
+.aspect-\[1\/2\] {
+  aspect-ratio: 1/2;
+}
+
+.aspect-\[1\/\] {
+  aspect-ratio: 1/;
+}
+
+.aspect-\[1\/1\.5\] {
+  aspect-ratio: 1/1.5;
+}
+
+.aspect-\[1\/1\.2\] {
+  aspect-ratio: 1/1.2;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -1389,6 +1413,10 @@ input:checked + .toggle-bg {
   height: 1rem;
 }
 
+.h-\[\] {
+  height: ;
+}
+
 .max-h-\[60\%\] {
   max-height: 60%;
 }
@@ -1424,6 +1452,10 @@ input:checked + .toggle-bg {
 
 .w-\[70\%\] {
   width: 70%;
+}
+
+.w-96 {
+  width: 24rem;
 }
 
 .w-28 {
@@ -1516,6 +1548,22 @@ input:checked + .toggle-bg {
 
 .w-4 {
   width: 1rem;
+}
+
+.w-24 {
+  width: 6rem;
+}
+
+.w-44 {
+  width: 11rem;
+}
+
+.w-52 {
+  width: 13rem;
+}
+
+.w-56 {
+  width: 14rem;
 }
 
 .max-w-\[900px\] {

@@ -92,18 +92,20 @@ if (isset($_POST['submit'])) {
         <table class="w-full text-black text-xl">
           <thead class="text-black-700 text-center bg-[#39A2DB]">
             <tr>
+              <th scope="col" class="py-3 px-6">Foto</th>
               <th scope="col" class="py-3 px-6">Nama Baju</th>
               <th scope="col" class="py-3 px-6">Stok</th>
               <th scope="col" class="py-3 px-6">Kategori</th>
               <th scope="col" class="py-3 px-6">Kondisi</th>
               <th scope="col" class="py-3 px-6">Harga</th>
               <th scope="col" class="py-3 px-6">Berat</th>
-              <th scope="col" class="py-3 px-6">Hapus</th>
+              <th scope="col" class="py-3 px-6">Aksi</th>
             </tr>
           </thead>
           <tbody class="text-center" id="Container">
             <?php foreach ($baju as $row) : ?>
               <tr class="bg-[#A2DBFA] border-b text-">
+                <td class="py-4 px-6"><img src="../../media/img/<?= $row['foto'] ?>" alt=""></td>
                 <th scope="row" class="py-4 px-6 font-light text-black whitespace-nowrap">
                   <?= $row['nama'] ?>
                 </th>
@@ -113,9 +115,14 @@ if (isset($_POST['submit'])) {
                 <td class="py-4 px-6"><?= $row['harga'] ?></td>
                 <td class="py-4 px-6"><?= $row['berat'] ?></td>
                 <td class="py-4 px-6">
-                  <button type="button" data-modal-toggle="popup-hapus">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1 11L11 1M1 1L11 11" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <button type="button" data-modal-toggle="popup-hapus" class="my-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                    </svg>
+                  </button>
+                  <button type="button" data-modal-toggle="popup-hapus" class="my-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
                 </td>

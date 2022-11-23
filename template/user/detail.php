@@ -66,7 +66,7 @@ $favorit = query("SELECT * FROM favorit WHERE id_pengguna = $idUser AND id_baju 
 
         <div class="flex flex-col w-[100%]">
             <div class="flex flex-col md:flex-row w-[70%]">
-                <img src="../../media/img/<?= $item[0]["foto"] ?>" alt="">
+                <img src="../../media/img/<?= $item[0]["foto"] ?>" class="w-64 aspect-[1/1.2]" alt="">
                 <div class="flex flex-col md:pl-6 h-auto">
                     <span class="text-lg md:text-4xl font-normal h-[40%]"><?= $item[0]["nama"] ?></span>
                     <span class="text-lg md:text-2xl font-normal">Ukuran: </span>

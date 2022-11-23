@@ -49,7 +49,7 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['userID'])) {
 
     <main class="bg-white w-full h-auto py-12 flex flex-col items-center">
         <div class="w-[90%] mb-6 flex flex-col items-start">
-        <span class="text-3xl font-thin text-[#8E3200] underline"><a href="list.php">Kembali</a></span>
+        <span class="text-3xl font-thin text-[#8E3200] underline"></span>
             <div class="w-full mt-6 grid grid-cols-3 md:grid-cols-6 grid-flow-rows gap-2.5 xl:gap-16">
                 <?php foreach( $daftar as $row ): ?>
                     <a class="w-auto h-auto bg-[#FFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
