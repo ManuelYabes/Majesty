@@ -58,7 +58,7 @@ $peminjam = query("SELECT * FROM pengguna CROSS JOIN peminjam ON peminjam.id_pen
       </a>
     </div>
     <div class="mx-10 mt-9 w-full">
-      <h1 class="text-[36px]">Pakaian Keluar</h1>
+      <h1 class="text-[36px]">Daftar Sedang DiPinjam</h1>
 
       <div class="flex mt-10">
         <form>

@@ -56,7 +56,7 @@ $peminjam = query("SELECT * FROM peminjam");
       </a>
     </div>
     <div class="mx-10 mt-9 w-full">
-      <h1 class="text-[36px]">Permintaan Masuk</h1>
+      <h1 class="text-[36px]">Daftar Peminjaman</h1>
 
       <div class="flex mt-10">
         <form>

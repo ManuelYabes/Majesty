@@ -52,7 +52,13 @@ if (!isset($_SESSION['user']) && !isset($_SESSION['userID'])) {
         <span class="text-3xl font-thin text-[#8E3200] underline"></span>
             <div class="w-full mt-6 grid grid-cols-3 md:grid-cols-6 grid-flow-rows gap-2.5 xl:gap-16">
                 <?php foreach( $daftar as $row ): ?>
-                    <a class="w-auto h-auto bg-[#FFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                    <a class="rounded-md drop-shadow-lg bg-white w-[100%] sm:w-44 aspect-[1/1.5] h-fit flex flex-col justify-center items-center"
+                        href="detail.php?id=<?= $row['id_baju'] ?>">
+                        <img class="w-[80%] rounded-sm mb-4" src="../../media/img/<?= $row['foto'] ?>" alt="me">
+                        <p class="text-black font-medium mx-auto"><?php $nama = explode(' ', $row['nama']);
+                                        $show = isset($nama[2]) ? $nama[0] . $nama[1] . '...' : (isset($nama[1]) ? $nama[0] . $nama[1] : $nama[0]);
+                                        echo $show ?></p>
+                    </a>
                 <?php endforeach;?>
             </div>
         </div>

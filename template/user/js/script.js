@@ -4,7 +4,7 @@ $(document).ready(function() {
         console.log("ea");
         $('#favs').toggleClass('text-[#d7a86e]');
         $('#favs').toggleClass('text-white');
-        $('#container').load('ajax/fav.php?iduser=' + $('#iduser').val() + '&idbaju=' + $('#idbaju').val());
+        load('ajax/fav.php?iduser=' + $('#iduser').val() + '&idbaju=' + $('#idbaju').val());
     });
     $('#search').unbind().keyup(function(){
         console.log('ea');

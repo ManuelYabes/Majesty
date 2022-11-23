@@ -119,7 +119,6 @@ $favorit = query("SELECT * FROM favorit WHERE id_pengguna = $idUser AND id_baju 
     </div>
 <?php endif ?>
 
-    <div id="container"></div>
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="js/script.js"></script>
     <script src="../../node_modules/flowbite/dist/flowbite.js"></script>
