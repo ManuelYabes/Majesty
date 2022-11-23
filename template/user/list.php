@@ -62,7 +62,7 @@
                 <?php if( count($pernikahaan) >= 2):?>
                     <div class="w-full mt-6 flex flex-row flex-wrap justify-center md:justify-start md:flex-nowrap gap-2.5 xl:gap-16">
                         <?php foreach( $pernikahaan as $row ): ?>
-                            <a class="w-[45%] sm:w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                            <a class="w-[45%] sm:w-44 h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
                         <?php endforeach;?>
                     </div>
                 <?php else: ?>
@@ -84,7 +84,7 @@
                 <?php if( count($adat) >= 2):?>
                     <div class="w-full mt-6 flex flex-row flex-wrap justify-center md:justify-start md:flex-nowrap gap-2.5 xl:gap-16">
                         <?php foreach( $adat as $row ): ?>
-                            <a class="w-[45%] sm:w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                            <a class="w-[45%] sm:w-44 h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
                             <?php endforeach;?>
                     </div>
                 <?php else: ?>
@@ -106,7 +106,7 @@
                 <?php if( count($pesta) >= 2):?>
                     <div class="w-full mt-6 flex flex-row flex-wrap justify-center md:justify-start md:flex-nowrap gap-2.5 xl:gap-16">
                         <?php foreach( $pesta as $row ): ?>
-                            <a class="w-[45%] sm:w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                            <a class="w-[45%] sm:w-44 h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
                         <?php endforeach;?>
                     </div>
                 <?php else: ?>
@@ -128,7 +128,7 @@
                 <?php if( count($adat) >= 2):?>
                     <div class="w-full mt-6 flex flex-row flex-wrap justify-center md:justify-start md:flex-nowrap gap-2.5 xl:gap-16">
                         <?php foreach( $formal as $row ): ?>
-                            <a class="w-[45%] sm:w-auto h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
+                            <a class="w-[45%] sm:w-44 h-auto bg-[#FFFFFF] flex justify-center items-center" href="detail.php?id=<?= $row['id_baju'] ?>"><img class="w-fit" src="../../media/img/<?= $row['foto'] ?>" alt="me"></a>
                             <?php endforeach;?>
                     </div>
                 <?php else: ?>

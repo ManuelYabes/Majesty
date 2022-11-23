@@ -49,11 +49,11 @@ $peminjam = query("SELECT * FROM peminjam");
           <a href="daftardipinjam.php" class="block"><img src="../../static/foto/keluar.svg" alt="" /></a>
         </div>
       </div>
-      <button class="mt-auto z-20 group" data-modal-toggle="popup-modal">
+      <a href="func/logout.php" class="mt-auto z-20 group" data-modal-toggle="popup-modal">
         <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path class="group-focus:stroke-black" d="M23.375 22L28.875 16.5M28.875 16.5L23.375 11M28.875 16.5L9.625 16.5M17.875 22V23.375C17.875 25.6532 16.0282 27.5 13.75 27.5H8.25C5.97183 27.5 4.125 25.6532 4.125 23.375V9.625C4.125 7.34683 5.97183 5.5 8.25 5.5H13.75C16.0282 5.5 17.875 7.34683 17.875 9.625V11" stroke="#E5E7EB" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
-      </button>
+      </a>
     </div>
     <div class="mx-10 mt-9 w-full">
       <h1 class="text-[36px]">Permintaan Masuk</h1>

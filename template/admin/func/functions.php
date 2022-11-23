@@ -35,6 +35,32 @@ function tambahBaju($data){
     
 }
 
+function ubahBaju($data){
+	global $conn;
+	$id_baju = $data['id_baju'];
+
+	$gambarLama = $data['fotoBajuLama'];
+	if ($_FILES['fotoBaju']['error'] === 4) {
+		$gambar = $gambarLama;
+	} else {
+		$gambar = upload();
+	}
+
+	$namaBaju = $data['namaBaju'];
+	$kategori = $data['kategori'];
+	$deskripsi = $data['deskripsi'];
+	$harga = $data['harga'];
+	$pembayaran = $data['pembayaran'];
+	$ukuran = $data['ukuran'];
+	$stok = $data['stok'];
+	$kondisi = $data['kondisi'];
+	$berat = $data['berat'];
+
+	$update = "UPDATE daftar_baju SET foto = '$gambar', nama = '$namaBaju', kategori = '$kategori', deskripsi = '$deskripsi', harga = $harga,
+				pembayaran = '$pembayaran', ukuran = '$ukuran', stok = $stok, kondisi = '$kondisi', berat = $berat WHERE id_baju = $id_baju";
+	mysqli_query($conn,$update);
+	return mysqli_affected_rows($conn);
+}
 function upload(){
 	$namaFile = $_FILES['fotoBaju']['name'];
 	$ukuranFile = $_FILES['fotoBaju']['size'];
