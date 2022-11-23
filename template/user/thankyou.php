@@ -54,7 +54,7 @@ $history = query("SELECT peminjam.id,peminjam.nama,peminjam.total_harga,peminjam
     <?php include('nav.php'); ?>
 
     <main>
-        <div class="flex flex-col items-center text-lg md:text-2xl mt-4">
+        <div class="flex flex-col items-center text-md md:text-2xl mt-4">
             <Span>Terimakasih telah meminjam pakaian di kami</Span>
             <span>jangan lupa tunjukan pesan ini ke kasir Untuk pengambilan</span>
             <span class="text-xl">klik gambar untuk ke riwayat</span>
@@ -62,7 +62,7 @@ $history = query("SELECT peminjam.id,peminjam.nama,peminjam.total_harga,peminjam
         <div>
             <div class="flex flex-row justify-center w-full p-10">
                 <a href="profil.php" class="flex flex-col md:flex-row justify-around w-[90%] md:w-[60%] border-2">
-                    <img class="" src="../../media/img/<?= $history[0]['foto'] ?>" alt="">
+                    <img class="w-[10rem] h-auto aspect-[1/1.3]" src="../../media/img/<?= $history[0]['foto'] ?>" alt="">
                     <div class="flex flex-col justify-center">
                         <span class="text-2xl md:text-3xl font-[100]"><?= $history[0]['nama'] ?></span>
                         <span class="text-lg md:text-xl mt-4">Ukuran <?= $history[0]['ukuran'] ?></span>
