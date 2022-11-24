@@ -31,7 +31,7 @@ $(document).ready(function () {
           "&harga=" +
           $("#harga").val()
       );
-    }, 1000);
+    }, 100);
   });
   $("#tanggal2").change(function () {
     setInterval(() => {
@@ -43,6 +43,6 @@ $(document).ready(function () {
           "&harga=" +
           $("#harga").val()
       );
-    }, 1000);
+    }, 100);
   });
 });
