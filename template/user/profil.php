@@ -50,7 +50,7 @@ $profil = query("SELECT * FROM pengguna WHERE id = $idUser");
     <main class="flex flex-col md:flex-row w-full h-screen border-4">
         <div class="hidden md:flex justify-center w-[20%] h-full p-4 ">
             <div class="w-[80%] h-[80%] border-2 flex flex-col justify-around items-center text-2xl rounded-xl">
-                <span class="h-[5%]"><?= $profil[0]['nama'] ?></span>
+                <span class="h-[5%] font-bold"><?= $profil[0]['nama'] ?></span>
                 <div class="max-h-[60%] flex flex-col justify-around gap-4">
                     <a href="profil.php">Profile</a>
                     <a href="favorit.php">Favorit</a>
@@ -75,7 +75,7 @@ $profil = query("SELECT * FROM pengguna WHERE id = $idUser");
                     <img class="w-[40%] md:w-[80%] aspect-square" src="../../media/img/<?= $profil[0]['foto'] ?>" alt="Profil">
                 </div>
                 <div class="w-full md:w-[80%] h-[100%] flex-wrap flex flex-col items-start rounded-xl gap-8">
-                    <span class="w-[90%] mt-6 mx-auto flex justify-between text-lg md:text-xl font-bold">Ubah BioData<span class="font-medium underline"><a href="ubahprofile.php">Tambah / Ubah Profil</a></span></span>
+                    <span class="w-[90%] mt-6 mx-auto flex justify-between text-lg md:text-xl font-bold">Ubah Biodata<span class="font-medium underline"><a href="ubahprofile.php">Tambah / Ubah Profil</a></span></span>
                     <div class="w-[90%] mx-auto flex justify-between"><span>Nama </span><span><?=  $profil[0]['nama'] ?></span></div>
                     <div class="w-[90%] mx-auto flex justify-between"><span>Tanggal Lahir </span><span><?=  $profil[0]['tanggal_lahir'] ?></span></div>
                     <div class="w-[90%] mx-auto flex justify-between"><span>Jenis Kelamin </span><span><?=  $profil[0]['jenis_kelamin'] ?></span></div>

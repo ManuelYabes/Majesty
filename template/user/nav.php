@@ -25,7 +25,7 @@ $userNAV = $userNAV[0]['foto']
         </div>
     </div>
     <div class="w-[20%] flex flex-row justify-center items-center gap-5"><a href="profil.php"
-            class="hidden md:flex text-white text-lg font-light">
+            class="hidden md:flex text-white text-lg font-light font-bold">
             <?= $_SESSION['user'] ?></a>
                 <a href="profil.php" type="button" class="">
                     <?php if ($userNAV): ?>

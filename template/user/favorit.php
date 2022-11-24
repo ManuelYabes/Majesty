@@ -52,7 +52,7 @@ $favorit = query("SELECT * FROM favorit INNER JOIN daftar_baju on favorit.id_baj
     <main class="flex flex-col md:flex-row w-full h-screen border-4">
         <div class="hidden md:flex justify-center w-[20%] h-full p-4">
             <div class="w-[80%] h-[80%] border-2 flex flex-col justify-around items-center text-2xl rounded-xl">
-            <span class="h-[5%]"><?= $profil[0]['nama'] ?></span>
+            <span class="h-[5%] font-bold"><?= $profil[0]['nama'] ?></span>
                 <div class="max-h-[60%] flex flex-col justify-around gap-4">
                     <a href="profil.php">Profile</a>
                     <a href="favorit.php">Favorit</a>
