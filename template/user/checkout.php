@@ -25,6 +25,7 @@ date_default_timezone_set("Asia/jakarta");
 
 $listUkuran = explode(',',$_POST['listUkuran']);
 $listBayar = explode(',',$_POST['listBayar']);
+
 $nama = $_POST['nama'];
 $id = $_POST['id'];
 $idUser = $_POST["iduser"];
@@ -32,19 +33,6 @@ $tanggal = date('Y-m-d');
 $stok = $_POST['stokBaju'];
 
 $info = query("SELECT * FROM daftar_baju WHERE id_baju=$id");
-
-if(isset($_POST['submit-checkout'])){
-    $idnext = pinjam($_POST);
-    if($idnext !== false){
-    echo "<script>   
-        document.location.href = 'thankyou.php?idnext=$idnext';
-    </script>";
-    } else {
-    echo "<script>   
-        document.location.href = 'detail.php?id=$id&error=tru';
-    </script>";
-    }
-}
 
 ?>
 
@@ -86,7 +74,7 @@ if(isset($_POST['submit-checkout'])){
     </div>
 
 
-    <form action="" method="POST" class="mt-10 flex flex-col w-full md:w-5/12 gap-y-10">
+    <form action="func/checkout.php" method="POST" class="mt-10 flex flex-col w-full md:w-5/12 gap-y-10">
         <div class="flex flex-col">
             <span>Pilih Ukuran</span>
             <select class="rounded-full" name="ukuran" id="" required>
