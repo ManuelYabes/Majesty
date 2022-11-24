@@ -6,7 +6,7 @@ $(document).ready(function () {
       console.log("ea");
       $("#favs").toggleClass("text-[#d7a86e]");
       $("#favs").toggleClass("text-white");
-      load(
+      $('#container').load(
         "ajax/fav.php?iduser=" +
           $("#iduser").val() +
           "&idbaju=" +
@@ -31,7 +31,7 @@ $(document).ready(function () {
           "&harga=" +
           $("#harga").val()
       );
-    }, 3e1);
+    }, 2000);
   });
   $("#tanggal2").click(function () {
     setInterval(() => {
@@ -43,6 +43,6 @@ $(document).ready(function () {
           "&harga=" +
           $("#harga").val()
       );
-    }, 3e1);
+    }, 2000);
   });
 });
