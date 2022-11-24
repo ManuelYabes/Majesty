@@ -106,21 +106,24 @@ if(isset($_POST['submit-checkout'])){
         <div class="flex flex-col">
             <span>Tentukan Tanggal Pengambilan Dan Pengembalian</span>
             <div class="flex items-center mt-2"> 
-                <input class="rounded-full" type="date" name="tanggal" min="<?= $tanggal ?>" required>
+                <input class="rounded-full" type="date" name="tanggal" id="tanggal1" value="<?= $tanggal ?>" min="<?= $tanggal ?>" required>
                 <span class="mx-4"> - </span>
-                <input class="rounded-full" type="date" name="tanggal2" min="<?= $tanggal ?>" required>
+                <input class="rounded-full" type="date" name="tanggal2" id="tanggal2" value="<?= $tanggal ?>" min="<?= $tanggal ?>" required>
             </div>
-            <input type="hidden" name="harga" value="<?= $info[0]['harga'] ?>">
+            <input type="hidden" name="harga" id="harga" value="<?= $info[0]['harga'] ?>">
             <input type="hidden" name="nama" value="<?= $nama ?>">
             <input type="hidden" name="id" value="<?= $id ?>">
             <input type="hidden" name="iduser" value="<?= $idUser ?>">
             <input type="hidden" name="stokBaju" value="<?= $stok ?>">
             <button class="fixed right-2 md:right-24 bottom-2 md:bottom-24 py-2 px-10 rounded-full bg-[#d7a86e]" type="submit" name="submit-checkout" id="submit">Checkout</button>
+            <div class="w-auto mt-6 font-thin text-xl bg-gray-100 rounded-md py-1 px-2">Total Harga :<span id="total_harga"></span></div>
         </div>
     </form>
 
 </main>
 
     <script src="../../node_modules/flowbite/dist/flowbite.js"></script>
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
