@@ -21,7 +21,7 @@ $(document).ready(function () {
         $("#Container").html(data);
       });
     });
-  $("#tanggal1").click(function () {
+  $("#tanggal1").change(function () {
     setInterval(() => {
       $("#total_harga").load(
         "ajax/total.php?tanggal1=" +
@@ -31,9 +31,9 @@ $(document).ready(function () {
           "&harga=" +
           $("#harga").val()
       );
-    }, 2000);
+    }, 1000);
   });
-  $("#tanggal2").click(function () {
+  $("#tanggal2").change(function () {
     setInterval(() => {
       $("#total_harga").load(
         "ajax/total.php?tanggal1=" +
@@ -43,6 +43,6 @@ $(document).ready(function () {
           "&harga=" +
           $("#harga").val()
       );
-    }, 2000);
+    }, 1000);
   });
 });
